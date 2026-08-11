@@ -2,13 +2,14 @@
 
 **Curso:** Seminario de Sistemas 2
 **Universidad:** Universidad de San Carlos de Guatemala — Facultad de Ingeniería — Ingeniería en Ciencias y Sistemas
-| Estudiante | Carnet |
+
+|               Estudiante               |  Carnet   |
 | :------------------------------------: | :-------: |
 | Angel Guillermo de Jesús Pérez Jiménez | 202100215 |
-| | |
-| | |
+|                                        |           |
+|                                        |           |
+
 **Grupo:** 14
-**Repositorio:** `SS22S2026_14G` / Carpeta: `Tarea1`
 
 ---
 
