@@ -1,0 +1,13 @@
+# Requisitos para ejecutar la Tarea #1 en local (script .py o notebook .ipynb)
+# Instalar con: pip install -r requirements.txt
+
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+pyarrow>=14.0
+
+# Solo necesarios si vas a correr el notebook (.ipynb) en vez del script (.py)
+jupyter>=1.0
+notebook>=7.0
+ipykernel>=6.0
