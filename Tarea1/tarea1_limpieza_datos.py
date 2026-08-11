@@ -1,7 +1,6 @@
 """
 Tarea #1 - Limpieza y analisis inicial de datos con Python y Pandas
 Seminario de Sistemas 2 - Facultad de Ingenieria, USAC
-Estudiante: Angel - Carne 202100215
 
 Script equivalente al notebook tarea1_limpieza_datos.ipynb.
 Ejecuta todo el proceso de limpieza, genera las tablas pivote de comparacion
@@ -31,18 +30,16 @@ def linea(titulo):
     print("=" * 70)
 
 
-# ---------------------------------------------------------------------
 # 1. Carga del dataset
-# ---------------------------------------------------------------------
 linea("1. CARGA DEL DATASET")
 df = pd.read_csv("dataset_sucio.csv")
 print(f"Dimensiones: {df.shape[0]} filas x {df.shape[1]} columnas")
 print(df.head(10))
 df.info()
 
-# ---------------------------------------------------------------------
+
 # 2. Exploracion inicial - Estado ANTES de la limpieza
-# ---------------------------------------------------------------------
+
 linea("2. ESTADO ANTES DE LA LIMPIEZA")
 df_original = df.copy()
 
@@ -61,9 +58,7 @@ pivot_antes = pd.pivot_table(
 print("\nTabla pivote ANTES (conteo de registros por ciudad/categoria):")
 print(pivot_antes)
 
-# ---------------------------------------------------------------------
 # 3. Proceso de limpieza
-# ---------------------------------------------------------------------
 linea("3. PROCESO DE LIMPIEZA")
 
 # 3.1 Eliminacion de duplicados
@@ -119,9 +114,8 @@ print(df.isnull().sum())
 print(f"\nFilas duplicadas (DESPUES): {df.duplicated().sum()}")
 df.info()
 
-# ---------------------------------------------------------------------
+
 # 4. Tablas pivote - Estado DESPUES de la limpieza
-# ---------------------------------------------------------------------
 linea("4. TABLAS PIVOTE - ESTADO DESPUES")
 pivot_despues = pd.pivot_table(
     df, index='ciudad', columns='categoria',
@@ -137,9 +131,7 @@ pivot_conteo_despues = pd.pivot_table(
 print("\nConteo de registros por ciudad y categoria:")
 print(pivot_conteo_despues)
 
-# ---------------------------------------------------------------------
 # 5. Visualizaciones
-# ---------------------------------------------------------------------
 linea("5. GENERANDO VISUALIZACIONES (.png)")
 
 # 5.1 Distribucion del gasto
@@ -208,9 +200,7 @@ print("Visualizaciones guardadas: viz_distribucion_gasto.png, viz_gasto_por_cate
       "viz_gasto_por_ciudad.png, viz_distribucion_genero.png, viz_registros_tiempo.png, "
       "viz_heatmap_ciudad_categoria.png")
 
-# ---------------------------------------------------------------------
 # 6. Exportacion del dataset limpio
-# ---------------------------------------------------------------------
 linea("6. EXPORTACION DEL DATASET LIMPIO")
 df.to_csv('dataset_limpio.csv', index=False)
 df.to_parquet('dataset_limpio.parquet', index=False)
