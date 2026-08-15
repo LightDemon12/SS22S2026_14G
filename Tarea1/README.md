@@ -6,7 +6,7 @@
 |               Estudiante               |  Carnet   |
 | :------------------------------------: | :-------: |
 | Angel Guillermo de Jesús Pérez Jiménez | 202100215 |
-|                                        |           |
+| Daniel Abraham Gálvez Solorzano        | 202203361 |
 |                                        |           |
 
 **Grupo:** 14
