@@ -1,0 +1,133 @@
+======================================================================
+1. Conteo de filas por tabla
+======================================================================
+t | n
+dim_fecha | 731
+dim_aerolinea | 12
+dim_aeropuerto | 15
+dim_aeronave | 12
+dim_clase_cabina | 4
+dim_canal_venta | 6
+dim_metodo_pago | 5
+dim_estado_vuelo | 4
+dim_pasajero | 10000
+fact_vuelos | 10000
+
+======================================================================
+2. Vuelos por estado
+======================================================================
+status | total_vuelos
+ON_TIME | 7278
+DELAYED | 1970
+CANCELLED | 560
+DIVERTED | 192
+
+======================================================================
+3. Top 5 destinos mas frecuentes
+======================================================================
+destino | total_vuelos
+SAP | 701
+CUN | 699
+BOG | 696
+BCN | 696
+HAV | 693
+
+======================================================================
+4. Top 5 rutas mas frecuentes
+======================================================================
+origen | destino | total_vuelos
+MIA | HAV | 76
+HAV | CUN | 66
+SAL | LAX | 64
+HAV | GUA | 63
+CUN | BOG | 62
+
+======================================================================
+5. Distribucion de pasajeros por genero
+======================================================================
+genero | total_pasajeros | porcentaje
+Masculino | 4912 | 49.12
+Femenino | 4698 | 46.98
+Otro / Prefiere no decir | 346 | 3.46
+No binario | 44 | 0.44
+
+======================================================================
+6. Top 5 aerolineas con mas vuelos retrasados
+======================================================================
+airline_name | vuelos_retrasados | retraso_promedio_min
+Iberia | 185 | 120.5
+Southwest | 184 | 125.8
+Ryanair | 172 | 137.2
+Copa Airlines | 167 | 124.7
+American Airlines | 166 | 114.4
+
+======================================================================
+7. Ingreso total y ticket promedio por clase de cabina
+======================================================================
+cabin_class | total_boletos | ingreso_total_usd | ticket_promedio_usd
+ECONOMY | 7866 | 499766.74 | 63.54
+BUSINESS | 956 | 137327.1 | 143.65
+PREMIUM_ECONOMY | 974 | 87062.7 | 89.39
+FIRST | 204 | 45868.17 | 224.84
+
+======================================================================
+8. Vuelos y ticket promedio por mes (primeros 6 meses)
+======================================================================
+anio | mes | nombre_mes | total_vuelos | ticket_promedio_usd
+2024 | 1 | Enero | 423 | 87.46
+2024 | 2 | Febrero | 380 | 78.65
+2024 | 3 | Marzo | 416 | 76.1
+2024 | 4 | Abril | 420 | 70.71
+2024 | 5 | Mayo | 402 | 76.35
+2024 | 6 | Junio | 370 | 77.83
+
+======================================================================
+9. Canal de venta x metodo de pago (top 8 combinaciones)
+======================================================================
+sales_channel | payment_method | total
+AGENCIA | PAYPAL | 441
+WEB | PAYPAL | 421
+AGENCIA | TARJETA | 417
+APP | TARJETA | 411
+AEROPUERTO | TRANSFERENCIA | 408
+AEROPUERTO | PUNTOS | 407
+AEROPUERTO | PAYPAL | 406
+AEROPUERTO | TARJETA | 406
+
+======================================================================
+10. Top 10 nacionalidades de pasajeros
+======================================================================
+nacionalidad | total_pasajeros
+PA | 923
+US | 909
+MX | 908
+SV | 900
+ES | 899
+GT | 891
+PE | 886
+CU | 882
+CR | 882
+HN | 869
+
+======================================================================
+11. Pasajeros con mas de una version historica (SCD2)
+======================================================================
+passenger_id | versiones_historicas
+
+======================================================================
+12. Equipaje promedio por aerolinea
+======================================================================
+airline_name | maletas_promedio | maletas_facturadas_promedio
+United | 1.27 | 0.4
+Delta | 1.24 | 0.38
+Copa Airlines | 1.22 | 0.35
+British Airways | 1.22 | 0.37
+Avianca | 1.22 | 0.37
+Ryanair | 1.21 | 0.36
+LATAM | 1.21 | 0.34
+American Airlines | 1.19 | 0.36
+Southwest | 1.18 | 0.32
+JetBlue | 1.18 | 0.35
+Aeromexico | 1.17 | 0.33
+Iberia | 1.14 | 0.32
+

@@ -1,0 +1,21 @@
+2026-08-11 01:50:10,315 [INFO] Motor de base de datos destino: sqlite:////home/claude/SS22S2026_14G/Practica1/etl/../vuelos_dw.db
+2026-08-11 01:50:10,316 [INFO] === FASE 1: EXTRACCION ===
+2026-08-11 01:50:10,434 [INFO] Se leyeron 10,000 filas y 26 columnas desde dataset_vuelos_crudo.csv
+2026-08-11 01:50:10,434 [INFO] === FASE 2: TRANSFORMACION ===
+2026-08-11 01:50:10,436 [INFO] Duplicados eliminados por record_id: 0
+2026-08-11 01:50:10,463 [INFO] passenger_age: 112 nulos imputados con la mediana (34 anios)
+2026-08-11 01:50:10,464 [INFO] passenger_nationality: 209 nulos marcados como 'XX' (desconocida)
+2026-08-11 01:50:10,465 [INFO] sales_channel: 144 nulos marcados como 'DESCONOCIDO'
+2026-08-11 01:50:12,145 [INFO] arrival_datetime: 560 valores nulos (vuelos CANCELLED, es un nulo legitimo, no se imputa)
+2026-08-11 01:50:12,148 [INFO] Valores nulos por columna tras la transformacion:
+2026-08-11 01:50:12,149 [INFO]    - arrival_datetime: 560
+2026-08-11 01:50:12,149 [INFO]    - duration_min: 560
+2026-08-11 01:50:12,149 [INFO]    - delay_min: 560
+2026-08-11 01:50:12,149 [INFO]    - seat: 560
+2026-08-11 01:50:12,149 [INFO] Filas resultantes tras la transformacion: 10,000
+2026-08-11 01:50:12,149 [INFO] === FASE 3: CARGA ===
+2026-08-11 01:50:12,168 [INFO] Esquema creado/verificado en: sqlite:////home/claude/SS22S2026_14G/Practica1/etl/../vuelos_dw.db
+2026-08-11 01:50:12,203 [INFO] dim_fecha: 731 fechas en el calendario (2024-01-01 a 2025-12-31)
+2026-08-11 01:50:13,319 [INFO] dim_pasajero (SCD2): 10,000 altas nuevas, 0 nuevas versiones por cambio de atributos
+2026-08-11 01:50:13,690 [INFO] fact_vuelos: 10,000 registros cargados
+2026-08-11 01:50:13,692 [INFO] === PROCESO ETL FINALIZADO CORRECTAMENTE ===
