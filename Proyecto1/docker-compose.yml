@@ -1,0 +1,98 @@
+version: '3.8'
+
+x-airflow-common:
+  &airflow-common
+  image: apache/airflow:2.7.2
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER:-airflow}:${AIRFLOW_PASSWORD:-airflow}@postgres_airflow/${AIRFLOW_DB:-airflow}
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    # Variables de conexión al Data Warehouse para scripts Python y dbt
+    POSTGRES_USER: ${POSTGRES_USER:-admin}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+    POSTGRES_HOST: ${POSTGRES_HOST:-postgres_dw}
+    POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+    POSTGRES_DB: ${POSTGRES_DB:-sgfood_db}
+    # Esto instala Python y dbt dentro de Airflow automáticamente
+    _PIP_ADDITIONAL_REQUIREMENTS: pandas sqlalchemy psycopg2-binary dbt-postgres
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./data:/opt/airflow/data
+    - ./sgfood_dbt:/opt/airflow/sgfood_dbt
+  depends_on:
+    - postgres_airflow
+    - postgres_dw
+  networks:
+    - sgfood_net
+
+services:
+  # 1. Tu Data Warehouse y Fuente (PostgreSQL 15)
+  postgres_dw:
+    image: postgres:15
+    container_name: sgfood_postgres_dw
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      POSTGRES_DB: ${POSTGRES_DB:-sgfood_db}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - ./data/sgfood_oltp.sql:/docker-entrypoint-initdb.d/01_init_oltp.sql
+      - ./init_raw_schema.sql:/docker-entrypoint-initdb.d/02_init_raw.sql
+      - pgdata_dw:/var/lib/postgresql/data
+    networks:
+      - sgfood_net
+
+  # 2. Base de datos interna para que Airflow funcione
+  postgres_airflow:
+    image: postgres:13
+    container_name: sgfood_postgres_airflow
+    environment:
+      POSTGRES_USER: ${AIRFLOW_USER:-airflow}
+      POSTGRES_PASSWORD: ${AIRFLOW_PASSWORD:-airflow}
+      POSTGRES_DB: ${AIRFLOW_DB:-airflow}
+    volumes:
+      - pgdata_airflow:/var/lib/postgresql/data
+    networks:
+      - sgfood_net
+
+  # 3. Inicializador de Airflow (crea el usuario admin)
+  airflow-init:
+    <<: *airflow-common
+    container_name: sgfood_airflow_init
+    command: version
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${AIRFLOW_WWW_USER:-admin}
+      _AIRFLOW_WWW_USER_PASSWORD: ${AIRFLOW_WWW_PASSWORD:-admin}
+
+  # 4. Servidor Web de Airflow (UI)
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: sgfood_airflow_webserver
+    command: webserver
+    ports:
+      - "${AIRFLOW_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # 5. Programador de Airflow (Scheduler)
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: sgfood_airflow_scheduler
+    command: scheduler
+
+volumes:
+  pgdata_dw:
+  pgdata_airflow:
+
+networks:
+  sgfood_net:
+    driver: bridge

@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  # ===========================================================================
+  # 1. DIMENSIÓN CLIENTES
+  # ===========================================================================
+  - name: dim_clientes
+    description: "Dimensión con atributos descriptivos y de segmentación de clientes."
+    columns:
+      - name: id_cliente
+        description: "Llave primaria del cliente."
+        tests:
+          - unique
+          - not_null
+      - name: nombre_cliente
+        tests:
+          - not_null
+      - name: fecha_alta
+        tests:
+          - not_null
+
+  # ===========================================================================
+  # 2. DIMENSIÓN PRODUCTOS
+  # ===========================================================================
+  - name: dim_productos
+    description: "Dimensión de productos enriquecida con categoría y marca."
+    columns:
+      - name: id_producto
+        description: "Llave primaria del producto."
+        tests:
+          - unique
+          - not_null
+      - name: sku
+        tests:
+          - unique
+          - not_null
+      - name: nombre_producto
+        tests:
+          - not_null
+      - name: precio_lista
+        tests:
+          - not_null
+
+  # ===========================================================================
+  # 3. DIMENSIÓN SUCURSALES
+  # ===========================================================================
+  - name: dim_sucursales
+    description: "Dimensión de sucursales físicas y ubicación geográfica."
+    columns:
+      - name: id_sucursal
+        description: "Llave primaria de la sucursal."
+        tests:
+          - unique
+          - not_null
+      - name: nombre_sucursal
+        tests:
+          - not_null
+
+  # ===========================================================================
+  # 4. TABLA DE HECHOS: VENTAS
+  # ===========================================================================
+  - name: fct_ventas
+    description: "Tabla de hechos a nivel detalle de venta con métricas de facturación y descuentos."
+    columns:
+      - name: id_detalle
+        description: "Llave primaria única de la línea de detalle vendida."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_venta
+        description: "Identificador de la transacción de cabecera."
+        tests:
+          - not_null
+
+      - name: id_cliente
+        description: "Llave foránea hacia la dimensión de clientes."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_clientes')
+              field: id_cliente
+
+      - name: id_producto
+        description: "Llave foránea hacia la dimensión de productos."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_productos')
+              field: id_producto
+
+      - name: id_sucursal
+        description: "Llave foránea hacia la dimensión de sucursales."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sucursales')
+              field: id_sucursal
+
+      - name: fecha_venta
+        description: "Fecha en la que ocurrió la venta."
+        tests:
+          - not_null
+
+      - name: cantidad
+        description: "Cantidad de unidades comercializadas."
+        tests:
+          - not_null
+
+      - name: monto_neto
+        description: "Importe neto total de la línea de venta."
+        tests:
+          - not_null

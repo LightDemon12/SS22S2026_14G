@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: raw
+    database: sgfood_db
+    schema: raw
+    description: "Capa de ingesta cruda (RAW) proveniente del sistema transaccional y archivos CSV."
+    tables:
+      # Tablas transaccionales replicadas
+      - name: sucursal
+        description: "Datos de sucursales físicas de SG-Food."
+      - name: categoria
+        description: "Categorías principales de productos."
+      - name: marca
+        description: "Marcas comerciales de productos."
+      - name: producto
+        description: "Catálogo maestro de productos y precios base."
+      - name: cliente
+        description: "Registro y perfil de clientes."
+      - name: venta
+        description: "Cabecera de transacciones de venta."
+      - name: venta_detalle
+        description: "Detalle de líneas y productos de cada venta."
+
+      # Fuentes externas (CSV)
+      - name: inventario_bodega
+        description: "Snapshots mensuales de existencias y vencimientos en bodega."
+      - name: proveedores_precios
+        description: "Catálogo de costos de proveedores y plazos de entrega."
+      - name: promociones
+        description: "Campañas y descuentos aplicados por categoría."
+      - name: metas_ventas
+        description: "Metas mensuales de venta monetaria y unidades por sucursal."
+      - name: devoluciones
+        description: "Registro de devoluciones de producto por venta."

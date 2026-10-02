@@ -1,0 +1,31 @@
+name: 'sgfood_dbt'
+version: '1.0.0'
+config-version: 2
+
+# Perfil utilizado para la conexión
+profile: 'sgfood_dbt'
+
+# Rutas estándar del proyecto dbt
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuración de materializaciones por capas
+models:
+  sgfood_dbt:
+    # Capa Staging: Vistas para limpieza y estandarización sin duplicar almacenamiento
+    staging:
+      +materialized: view
+      +schema: staging
+
+    # Capa Marts: Tablas físicas optimizadas para consultas y reportería analítica (BI)
+    marts:
+      +materialized: table
+      +schema: analytics
