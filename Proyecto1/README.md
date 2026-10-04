@@ -2,7 +2,7 @@
 
 ##  Integrantes del Grupo
 * **Integrante 1:** 202200314 - Engel Emilio Coc Raxjal
-* **Integrante 2:** [Nombre y Carné / Identificación]
+* **Integrante 2:** 202203361 - Daniel Abraham Gálvez Solorzano
 
 ---
 

@@ -1,0 +1,50 @@
+### 1. Falta la capa "Intermediate" (Fallo en Alcance Obligatorio)
+El documento (Sección 3.2 Alcance - Obligatorio) exige explícitamente:
+> *"Implementar modelos dbt para staging, **intermediate** y marts"*
+
+En la estructura del proyecto y en el `README.md` solo se menciona y se implementa `staging` y `marts`. No existe la carpeta `models/intermediate/` ni modelos que sirvan de puente para limpiezas complejas o joins intermedios antes de llegar a la tabla de hechos `fct_ventas`.
+**Conclusión:** No cumplió con el alcance obligatorio del modelado.
+
+### 2. El Log de dbt es falso / incompleto (Fallo en Evidencia de Ejecución)
+El entregable pide *"evidencia de ejecución"*. Me compartiste el `logs/dbt.log`, pero si lees el contenido, el log **no muestra que el pipeline se haya ejecutado**. 
+El log solo muestra los comandos `dbt init sgfood_dbt` (crear el proyecto) y `dbt debug` (probar la conexión). 
+> `[info ] [MainThread]: Your new dbt project "sgfood_dbt" was created!`
+> `[info ] [MainThread]: All checks passed!`
+
+**Conclusión:** No hay ninguna evidencia en ese log de que se hayan corrido los comandos `dbt run` (construir modelos) ni `dbt test` (pruebas de calidad). El archivo de log solo prueba que instaló dbt y configuró el perfil, no que el flujo funcionó.
+
+### 3. El Script DDL del Data Warehouse está incompleto
+El entregable (Sección 3.4) pide:
+> *"Archivo con las sentencias SQL para la creación de schemas, tablas raw si aplica, **tablas de hechos, dimensiones, relaciones y claves** necesarias para el Data Warehouse"*
+
+El archivo `init_raw_schema.sql` que me enviaste **solo contiene el esquema `raw`** y las tablas crudas. No contiene el `CREATE SCHEMA staging;`, `CREATE SCHEMA analytics;` (o marts), ni las sentencias `CREATE TABLE` para `dim_clientes`, `dim_productos`, `fct_ventas`, etc. 
+**Conclusión:** Aunque dbt crea estas tablas automáticamente al correr, el *entregable físico* (el archivo SQL) está incompleto según lo que pide la rúbrica.
+
+### 4. Faltan los "Archivos SQL" de validación
+El entregable pide:
+> *"**Archivos SQL**, pruebas dbt y consultas analíticas utilizadas para comprobar la correcta carga..."*
+
+Tu compañero no creó ningún archivo `.sql` dedicado a validaciones (por ejemplo, en una carpeta `scripts/` o `validation/`). Lo que hizo fue pegar las consultas analíticas al final del `README.md` ("Consultas SQL de Validación Sugeridas"). 
+**Conclusión:** Es una solución parcial. Las pruebas de dbt en `marts.yml` están bien hechas (tiene `unique`, `not_null`, `relationships`), pero faltan los archivos SQL independientes que exige el entregable.
+
+---
+
+### Lo que SÍ está bien hecho (Para ser justos)
+*   **El script de Python (`extract_load_raw.py`):** Está muy bien estructurado. Usa `pandas` y `SQLAlchemy`, maneja bien las variables de entorno, trunca las tablas antes de insertar (idempotencia) y separa la lógica de la base OLTP de los CSV.
+*   **El DAG de Airflow (`sgfood_elt_pipeline.py`):** Es sencillo pero funcional. Encadena correctamente las 3 fases (`extract >> dbt run >> dbt test`) usando `BashOperator`.
+*   **Las pruebas de calidad en dbt (`marts.yml`):** Declaró correctamente las pruebas de integridad referencial (`relationships`) entre la tabla de hechos (`fct_ventas`) y las 3 dimensiones. Esto cubre la parte de "pruebas dbt" de la rúbrica.
+
+---
+
+### Resumen
+
+El proyecto **no está terminado**. Para que no pierdan puntos (especialmente en los criterios 1.3 y 2.1 que valen mucho), deben corregir lo siguiente antes de entregar:
+
+1.  **Crear la carpeta `models/intermediate/`** en dbt y mover o crear al menos un modelo intermedio (por ejemplo, un join entre ventas y detalles antes de pasar a `fct_ventas`) para cumplir con el alcance.
+2.  **Generar un log real:** Correr el DAG de Airflow o los comandos `dbt run` y `dbt test` localmente, y reemplazar el `dbt.log` actual con uno que muestre los modelos compilados y los tests pasando en verde.
+3.  **Completar el DDL:** Agregar al archivo `init_raw_schema.sql` (o crear un nuevo archivo `dw_ddl.sql`) los `CREATE TABLE` de las dimensiones y hechos, o al menos documentar por qué dbt se encarga de ello.
+4.  **Crear archivos SQL de validación:** Sacar las consultas que están al final del README y guardarlas en archivos `.sql` dentro de una carpeta `/scripts` o `/validation`.
+
+### RECOMENDADO
+
+1. **Añadir Manual de como se realizo el ETL, que convenciones se tomaron para hacerlo**
