@@ -2,7 +2,7 @@
 
 ## 👥 Integrantes del Grupo
 * **Integrante 1:** Daniel Abraham Gálvez Solorzano - 202203361
-* **Integrante 2:** [Nombre y Carné / Identificación]
+* **Integrante 2:** Engel Emilio Coc Raxjal - 202200314
 
 ---
 
@@ -189,6 +189,7 @@ Los 5 contenedores deben estar en estado `Up` o `Healthy`.
 4. Enciende el interruptor (**Toggle ON**) y presiona el botón **Trigger DAG** (▶️).
 5. Observa en la vista **Grid** o **Graph** cómo las 3 tareas finalizan en verde (`success`).
 
+> Si se desea copiar Logs: docker cp sgfood_airflow_webserver:/opt/airflow/sgfood_dbt/logs/dbt.log ./logs/dbt.log
 ---
 
 ### Paso 4: Validación y Consultas Analíticas en PostgreSQL
