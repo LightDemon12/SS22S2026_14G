@@ -1,7 +1,7 @@
 # SG-Food: Pipeline ELT & Data Warehouse Moderno
 
 ## 👥 Integrantes del Grupo
-* **Integrante 1:** [Nombre y Carné / Identificación]
+* **Integrante 1:** Daniel Abraham Gálvez Solorzano - 202203361
 * **Integrante 2:** [Nombre y Carné / Identificación]
 
 ---

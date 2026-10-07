@@ -1,77 +1,2257 @@
-[0m22:02:30.075006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDABAE2120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDA9648CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDAE56B890>]}
+[0m22:02:05.055867 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093964cce20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709395c9ec10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093979cb340>]}
 
 
-============================== 22:02:30.079356 | 849b7c92-9de3-4d96-81c6-ac9663fca8ec ==============================
-[0m22:02:30.079356 [info ] [MainThread]: Running with dbt=1.12.5
-[0m22:02:30.080136 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\engel\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init sgfood_dbt', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
-[0m22:02:30.095859 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\engel\.dbt
-[0m22:02:30.098711 [debug] [MainThread]: Starter project path: C:\Users\engel\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\dbt\include\starter_project
-[0m22:02:30.118950 [info ] [MainThread]: Setting up your profile.
-[0m22:05:18.021109 [info ] [MainThread]: Profile sgfood_dbt written to C:\Users\engel\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
-[0m22:05:18.023393 [info ] [MainThread]: Running dbt debug to validate the project...
-[0m22:05:18.024527 [info ] [MainThread]: dbt version: 1.12.5
-[0m22:05:18.025306 [info ] [MainThread]: python version: 3.14.7
-[0m22:05:18.026065 [info ] [MainThread]: python path: C:\Users\engel\AppData\Local\Python\pythoncore-3.14-64\python.exe
-[0m22:05:18.026901 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
-[0m22:05:18.061642 [info ] [MainThread]: Using profiles dir at C:\Users\engel\.dbt
-[0m22:05:18.062440 [info ] [MainThread]: Using profiles.yml file at C:\Users\engel\.dbt\profiles.yml
-[0m22:05:18.062923 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\engel\Documents\GitHub\SS22S2026_14G\Proyecto1\sgfood_dbt\dbt_project.yml
-[0m22:05:18.063842 [info ] [MainThread]: adapter type: postgres
-[0m22:05:18.064460 [info ] [MainThread]: adapter version: 1.11.0
-[0m22:05:18.199470 [info ] [MainThread]: Configuration:
-[0m22:05:18.200079 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
-[0m22:05:18.200688 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
-[0m22:05:18.201131 [info ] [MainThread]: Required dependencies:
-[0m22:05:18.201560 [debug] [MainThread]: Executing "git --help"
-[0m22:05:18.250329 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   history    EXPERIMENTAL: Rewrite history\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
-[0m22:05:18.251119 [debug] [MainThread]: STDERR: "b''"
-[0m22:05:18.251827 [info ] [MainThread]:  - git [[32mOK found[0m]
+============================== 22:02:05.090095 | 0adee2b3-8617-4298-98ff-f2172fea6dbd ==============================
+[0m22:02:05.090095 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m22:02:05.091085 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/opt/airflow/sgfood_dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --profiles-dir .', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:02:05.339774 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393d34fa0>]}
+[0m22:02:05.413326 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709395cd4e80>]}
+[0m22:02:05.414896 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m22:02:05.443416 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m22:02:05.448597 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m22:02:05.449685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393cb3250>]}
+[0m22:02:07.832971 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709391792a00>]}
+[0m22:02:08.069195 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093917766a0>]}
+[0m22:02:08.070633 [info ] [MainThread]: Found 13 models, 25 data tests, 12 sources, 424 macros
+[0m22:02:08.072411 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093916c0760>]}
+[0m22:02:08.076684 [info ] [MainThread]: 
+[0m22:02:08.078199 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:02:08.079166 [info ] [MainThread]: 
+[0m22:02:08.080416 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m22:02:08.088280 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db'
+[0m22:02:08.095107 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db'
+[0m22:02:08.110489 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db'
+[0m22:02:08.154535 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db"
+[0m22:02:08.155317 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db"
+[0m22:02:08.155860 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db"
+[0m22:02:08.156334 [debug] [ThreadPool]: On list_sgfood_db: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db"} */
 
-[0m22:05:18.252740 [info ] [MainThread]: Connection:
-[0m22:05:18.253565 [info ] [MainThread]:   host: localhost
-[0m22:05:18.254498 [info ] [MainThread]:   port: 5432
-[0m22:05:18.255347 [info ] [MainThread]:   user: admin
-[0m22:05:18.255922 [info ] [MainThread]:   database: sgfood_db
-[0m22:05:18.256344 [info ] [MainThread]:   schema: public
-[0m22:05:18.256706 [info ] [MainThread]:   connect_timeout: 10
-[0m22:05:18.257084 [info ] [MainThread]:   role: None
-[0m22:05:18.257726 [info ] [MainThread]:   search_path: None
-[0m22:05:18.258573 [info ] [MainThread]:   keepalives_idle: 0
-[0m22:05:18.259427 [info ] [MainThread]:   sslmode: None
-[0m22:05:18.260288 [info ] [MainThread]:   sslcert: None
-[0m22:05:18.261072 [info ] [MainThread]:   sslkey: None
-[0m22:05:18.261583 [info ] [MainThread]:   sslrootcert: None
-[0m22:05:18.261992 [info ] [MainThread]:   application_name: dbt
-[0m22:05:18.262547 [info ] [MainThread]:   autocommit: False
-[0m22:05:18.263351 [info ] [MainThread]:   retries: 1
-[0m22:05:18.264670 [info ] [MainThread]: Registered adapter: postgres=1.11.0
-[0m22:05:18.549581 [debug] [MainThread]: Acquiring new postgres connection 'debug'
-[0m22:05:18.605753 [debug] [MainThread]: Using postgres connection "debug"
-[0m22:05:18.606227 [debug] [MainThread]: On debug: select 1 as id
-[0m22:05:18.606604 [debug] [MainThread]: Opening a new connection, currently in state init
-[0m22:05:18.637942 [debug] [MainThread]: SQL status: SELECT 1 in 0.031 seconds
-[0m22:05:18.639445 [debug] [MainThread]: On debug: Close
-[0m22:05:18.639992 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+    select distinct nspname from pg_namespace
+  
+[0m22:02:08.157096 [debug] [ThreadPool]: On list_sgfood_db: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db"} */
 
-[0m22:05:18.640793 [info ] [MainThread]: [32mAll checks passed![0m
-[0m22:05:18.641372 [info ] [MainThread]: Your new dbt project "sgfood_dbt" was created!
-Initialized new project in C:\Users\engel\Documents\GitHub\SS22S2026_14G\Proyecto1\sgfood_dbt\sgfood_dbt
+    select distinct nspname from pg_namespace
+  
+[0m22:02:08.157925 [debug] [ThreadPool]: On list_sgfood_db: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db"} */
 
-For more information on how to configure the profiles.yml file,
-please consult the dbt documentation here:
+    select distinct nspname from pg_namespace
+  
+[0m22:02:08.158623 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:08.159232 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:08.159965 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:08.172282 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.014 seconds
+[0m22:02:08.172995 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.013 seconds
+[0m22:02:08.173502 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.014 seconds
+[0m22:02:08.175184 [debug] [ThreadPool]: On list_sgfood_db: Close
+[0m22:02:08.176941 [debug] [ThreadPool]: On list_sgfood_db: Close
+[0m22:02:08.178739 [debug] [ThreadPool]: On list_sgfood_db: Close
+[0m22:02:08.184068 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_sgfood_db, now create_sgfood_db_intermediate)
+[0m22:02:08.185164 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_sgfood_db, now create_sgfood_db_staging)
+[0m22:02:08.185779 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_sgfood_db, now create_sgfood_db_analytics)
+[0m22:02:08.186491 [debug] [ThreadPool]: Creating schema "database: "sgfood_db"
+schema: "intermediate"
+"
+[0m22:02:08.187385 [debug] [ThreadPool]: Creating schema "database: "sgfood_db"
+schema: "staging"
+"
+[0m22:02:08.188355 [debug] [ThreadPool]: Creating schema "database: "sgfood_db"
+schema: "analytics"
+"
+[0m22:02:08.195977 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_intermediate"
+[0m22:02:08.198973 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_staging"
+[0m22:02:08.202017 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_analytics"
+[0m22:02:08.203046 [debug] [ThreadPool]: On create_sgfood_db_intermediate: BEGIN
+[0m22:02:08.203930 [debug] [ThreadPool]: On create_sgfood_db_staging: BEGIN
+[0m22:02:08.204671 [debug] [ThreadPool]: On create_sgfood_db_analytics: BEGIN
+[0m22:02:08.205327 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.206069 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.206696 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.215237 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:08.216484 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_intermediate"
+[0m22:02:08.217181 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:08.217784 [debug] [ThreadPool]: SQL status: BEGIN in 0.012 seconds
+[0m22:02:08.218255 [debug] [ThreadPool]: On create_sgfood_db_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "create_sgfood_db_intermediate"} */
+create schema if not exists "intermediate"
+[0m22:02:08.218944 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_analytics"
+[0m22:02:08.219694 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_staging"
+[0m22:02:08.220706 [debug] [ThreadPool]: On create_sgfood_db_analytics: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "create_sgfood_db_analytics"} */
+create schema if not exists "analytics"
+[0m22:02:08.221405 [debug] [ThreadPool]: On create_sgfood_db_staging: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "create_sgfood_db_staging"} */
+create schema if not exists "staging"
+[0m22:02:08.221877 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.001 seconds
+[0m22:02:08.222769 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.000 seconds
+[0m22:02:08.224186 [debug] [ThreadPool]: On create_sgfood_db_intermediate: COMMIT
+[0m22:02:08.224669 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.002 seconds
+[0m22:02:08.225997 [debug] [ThreadPool]: On create_sgfood_db_analytics: COMMIT
+[0m22:02:08.226635 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_intermediate"
+[0m22:02:08.227882 [debug] [ThreadPool]: On create_sgfood_db_staging: COMMIT
+[0m22:02:08.228562 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_analytics"
+[0m22:02:08.229203 [debug] [ThreadPool]: On create_sgfood_db_intermediate: COMMIT
+[0m22:02:08.229861 [debug] [ThreadPool]: Using postgres connection "create_sgfood_db_staging"
+[0m22:02:08.230469 [debug] [ThreadPool]: On create_sgfood_db_analytics: COMMIT
+[0m22:02:08.231414 [debug] [ThreadPool]: On create_sgfood_db_staging: COMMIT
+[0m22:02:08.232848 [debug] [ThreadPool]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:08.233517 [debug] [ThreadPool]: On create_sgfood_db_intermediate: Close
+[0m22:02:08.233977 [debug] [ThreadPool]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:08.234435 [debug] [ThreadPool]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:08.235397 [debug] [ThreadPool]: On create_sgfood_db_analytics: Close
+[0m22:02:08.236253 [debug] [ThreadPool]: On create_sgfood_db_staging: Close
+[0m22:02:08.239865 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_sgfood_db_analytics, now list_sgfood_db_intermediate)
+[0m22:02:08.240743 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_sgfood_db_staging, now list_sgfood_db_staging)
+[0m22:02:08.248211 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_intermediate"
+[0m22:02:08.249272 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_sgfood_db_intermediate, now list_sgfood_db_analytics)
+[0m22:02:08.251791 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_staging"
+[0m22:02:08.252617 [debug] [ThreadPool]: On list_sgfood_db_intermediate: BEGIN
+[0m22:02:08.255240 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_analytics"
+[0m22:02:08.256015 [debug] [ThreadPool]: On list_sgfood_db_staging: BEGIN
+[0m22:02:08.256649 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.257261 [debug] [ThreadPool]: On list_sgfood_db_analytics: BEGIN
+[0m22:02:08.257827 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.258910 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:02:08.265828 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:08.267057 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_intermediate"
+[0m22:02:08.267729 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:08.268205 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:08.268789 [debug] [ThreadPool]: On list_sgfood_db_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_intermediate"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'intermediate'
+  
+[0m22:02:08.269519 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_staging"
+[0m22:02:08.270203 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_analytics"
+[0m22:02:08.271295 [debug] [ThreadPool]: On list_sgfood_db_staging: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_staging"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m22:02:08.272160 [debug] [ThreadPool]: On list_sgfood_db_analytics: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_analytics"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics'
+  
+[0m22:02:08.275489 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.004 seconds
+[0m22:02:08.276325 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.003 seconds
+[0m22:02:08.276797 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.004 seconds
+[0m22:02:08.278809 [debug] [ThreadPool]: On list_sgfood_db_intermediate: ROLLBACK
+[0m22:02:08.280600 [debug] [ThreadPool]: On list_sgfood_db_analytics: ROLLBACK
+[0m22:02:08.282440 [debug] [ThreadPool]: On list_sgfood_db_staging: ROLLBACK
+[0m22:02:08.283890 [debug] [ThreadPool]: On list_sgfood_db_intermediate: Close
+[0m22:02:08.284558 [debug] [ThreadPool]: On list_sgfood_db_analytics: Close
+[0m22:02:08.285954 [debug] [ThreadPool]: On list_sgfood_db_staging: Close
+[0m22:02:08.300575 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:08.302039 [debug] [MainThread]: On master: BEGIN
+[0m22:02:08.303004 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:02:08.316901 [debug] [MainThread]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:08.318912 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:08.320799 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
 
-  https://docs.getdbt.com/docs/configure-your-profile
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m22:02:08.336413 [debug] [MainThread]: SQL status: SELECT 0 in 0.014 seconds
+[0m22:02:08.339020 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709394feaa90>]}
+[0m22:02:08.340613 [debug] [MainThread]: On master: ROLLBACK
+[0m22:02:08.342212 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:08.343820 [debug] [MainThread]: On master: BEGIN
+[0m22:02:08.346402 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m22:02:08.348261 [debug] [MainThread]: On master: COMMIT
+[0m22:02:08.349708 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:08.351257 [debug] [MainThread]: On master: COMMIT
+[0m22:02:08.353069 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m22:02:08.354477 [debug] [MainThread]: On master: Close
+[0m22:02:08.383796 [debug] [Thread-1  ]: Began running node model.sgfood_dbt.stg_categorias
+[0m22:02:08.385394 [debug] [Thread-2  ]: Began running node model.sgfood_dbt.stg_clientes
+[0m22:02:08.386640 [debug] [Thread-3  ]: Began running node model.sgfood_dbt.stg_marcas
+[0m22:02:08.387868 [debug] [Thread-4  ]: Began running node model.sgfood_dbt.stg_productos
+[0m22:02:08.389637 [info ] [Thread-1  ]: 1 of 13 START sql view model staging.stg_categorias ............................ [RUN]
+[0m22:02:08.411266 [info ] [Thread-2  ]: 2 of 13 START sql view model staging.stg_clientes .............................. [RUN]
+[0m22:02:08.414551 [info ] [Thread-3  ]: 3 of 13 START sql view model staging.stg_marcas ................................ [RUN]
+[0m22:02:08.418053 [info ] [Thread-4  ]: 4 of 13 START sql view model staging.stg_productos ............................. [RUN]
+[0m22:02:08.426844 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_sgfood_db_staging, now model.sgfood_dbt.stg_categorias)
+[0m22:02:08.430688 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly list_sgfood_db_analytics, now model.sgfood_dbt.stg_clientes)
+[0m22:02:08.433210 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly list_sgfood_db_intermediate, now model.sgfood_dbt.stg_marcas)
+[0m22:02:08.436072 [debug] [Thread-4  ]: Acquiring new postgres connection 'model.sgfood_dbt.stg_productos'
+[0m22:02:08.438924 [debug] [Thread-1  ]: Began compiling node model.sgfood_dbt.stg_categorias
+[0m22:02:08.441586 [debug] [Thread-2  ]: Began compiling node model.sgfood_dbt.stg_clientes
+[0m22:02:08.443795 [debug] [Thread-3  ]: Began compiling node model.sgfood_dbt.stg_marcas
+[0m22:02:08.445776 [debug] [Thread-4  ]: Began compiling node model.sgfood_dbt.stg_productos
+[0m22:02:08.490624 [debug] [Thread-2  ]: Writing injected SQL for node "model.sgfood_dbt.stg_clientes"
+[0m22:02:08.491524 [debug] [Thread-1  ]: Writing injected SQL for node "model.sgfood_dbt.stg_categorias"
+[0m22:02:08.498864 [debug] [Thread-3  ]: Writing injected SQL for node "model.sgfood_dbt.stg_marcas"
+[0m22:02:08.507396 [debug] [Thread-4  ]: Writing injected SQL for node "model.sgfood_dbt.stg_productos"
+[0m22:02:08.541468 [debug] [Thread-1  ]: Began executing node model.sgfood_dbt.stg_categorias
+[0m22:02:08.562130 [debug] [Thread-2  ]: Began executing node model.sgfood_dbt.stg_clientes
+[0m22:02:08.570063 [debug] [Thread-3  ]: Began executing node model.sgfood_dbt.stg_marcas
+[0m22:02:08.577341 [debug] [Thread-4  ]: Began executing node model.sgfood_dbt.stg_productos
+[0m22:02:08.820623 [debug] [Thread-1  ]: Writing runtime sql for node "model.sgfood_dbt.stg_categorias"
+[0m22:02:08.818570 [debug] [Thread-3  ]: Writing runtime sql for node "model.sgfood_dbt.stg_marcas"
+[0m22:02:08.822254 [debug] [Thread-4  ]: Writing runtime sql for node "model.sgfood_dbt.stg_productos"
+[0m22:02:08.825656 [debug] [Thread-2  ]: Writing runtime sql for node "model.sgfood_dbt.stg_clientes"
+[0m22:02:08.854738 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_productos"
+[0m22:02:08.856041 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: BEGIN
+[0m22:02:08.857250 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m22:02:08.859318 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_clientes"
+[0m22:02:08.863307 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: BEGIN
+[0m22:02:08.865149 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_categorias"
+[0m22:02:08.867007 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:08.869310 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: BEGIN
+[0m22:02:08.870900 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.stg_marcas"
+[0m22:02:08.873671 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:08.875040 [debug] [Thread-4  ]: SQL status: BEGIN in 0.018 seconds
+[0m22:02:08.876487 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: BEGIN
+[0m22:02:08.879413 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_productos"
+[0m22:02:08.881617 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:08.885939 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_productos"} */
 
-One more thing:
+  create view "sgfood_db"."staging"."stg_productos__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."producto"
+),
 
-Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+renamed_and_cleaned as (
+    select
+        cast(id_producto as integer) as id_producto,
+        trim(sku) as sku,
+        trim(nombre) as nombre_producto,
+        cast(id_categoria as integer) as id_categoria,
+        cast(id_marca as integer) as id_marca,
+        trim(unidad_medida) as unidad_medida,
+        cast(costo_base as numeric(12, 2)) as costo_base,
+        cast(precio_lista as numeric(12, 2)) as precio_lista,
+        coalesce(activo, true) as es_activo,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_producto is not null
+)
 
-  https://community.getdbt.com/
+select * from renamed_and_cleaned
+  );
+[0m22:02:08.887881 [debug] [Thread-2  ]: SQL status: BEGIN in 0.021 seconds
+[0m22:02:08.891812 [debug] [Thread-1  ]: SQL status: BEGIN in 0.018 seconds
+[0m22:02:08.893006 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_clientes"
+[0m22:02:08.895002 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_categorias"
+[0m22:02:08.897476 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_clientes"} */
 
-Happy modeling!
+  create view "sgfood_db"."staging"."stg_clientes__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."cliente"
+),
 
-[0m22:05:18.642547 [debug] [MainThread]: Command `python -m dbt.cli.main init` succeeded at 22:05:18.642377 after 168.76 seconds
-[0m22:05:18.642915 [debug] [MainThread]: Connection 'debug' was properly closed.
-[0m22:05:18.643389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDAE2EC8A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDAE847E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FDAC6B07C0>]}
-[0m22:05:18.643943 [debug] [MainThread]: Flushing usage events
-[0m22:05:19.021232 [debug] [MainThread]: An error was encountered while trying to flush usage events
+renamed_and_cleaned as (
+    select
+        cast(id_cliente as integer) as id_cliente,
+        trim(nit) as nit,
+        trim(nombre) as nombre_cliente,
+        trim(tipo_cliente) as tipo_cliente,
+        trim(municipio) as municipio,
+        trim(departamento) as departamento,
+        cast(fecha_alta as date) as fecha_alta,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_cliente is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:08.898635 [debug] [Thread-4  ]: SQL status: CREATE VIEW in 0.008 seconds
+[0m22:02:08.900068 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_categorias"} */
+
+  create view "sgfood_db"."staging"."stg_categorias__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."categoria"
+),
+
+renamed_and_cleaned as (
+    select
+        cast(id_categoria as integer) as id_categoria,
+        trim(nombre) as nombre_categoria,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_categoria is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:08.902896 [debug] [Thread-3  ]: SQL status: BEGIN in 0.021 seconds
+[0m22:02:08.915325 [debug] [Thread-2  ]: SQL status: CREATE VIEW in 0.013 seconds
+[0m22:02:08.921781 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_productos"
+[0m22:02:08.923325 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.stg_marcas"
+[0m22:02:08.932633 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_clientes"
+[0m22:02:08.934106 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.011 seconds
+[0m22:02:08.935760 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_productos"} */
+alter table "sgfood_db"."staging"."stg_productos__dbt_tmp" rename to "stg_productos"
+[0m22:02:08.937481 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_marcas"} */
+
+  create view "sgfood_db"."staging"."stg_marcas__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."marca"
+),
+
+renamed_and_cleaned as (
+    select
+        cast(id_marca as integer) as id_marca,
+        trim(nombre) as nombre_marca,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_marca is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:08.939693 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_clientes"} */
+alter table "sgfood_db"."staging"."stg_clientes__dbt_tmp" rename to "stg_clientes"
+[0m22:02:08.953720 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_categorias"
+[0m22:02:08.955509 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m22:02:08.958788 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_categorias"} */
+alter table "sgfood_db"."staging"."stg_categorias__dbt_tmp" rename to "stg_categorias"
+[0m22:02:08.960322 [debug] [Thread-2  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m22:02:08.961690 [debug] [Thread-3  ]: SQL status: CREATE VIEW in 0.005 seconds
+[0m22:02:08.996371 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: COMMIT
+[0m22:02:08.997798 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.018 seconds
+[0m22:02:09.001372 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: COMMIT
+[0m22:02:09.011344 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.stg_marcas"
+[0m22:02:09.013304 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_productos"
+[0m22:02:09.017697 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: COMMIT
+[0m22:02:09.019912 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_clientes"
+[0m22:02:09.021478 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_marcas"} */
+alter table "sgfood_db"."staging"."stg_marcas__dbt_tmp" rename to "stg_marcas"
+[0m22:02:09.022629 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: COMMIT
+[0m22:02:09.023921 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_categorias"
+[0m22:02:09.025099 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: COMMIT
+[0m22:02:09.027569 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: COMMIT
+[0m22:02:09.031328 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m22:02:09.032568 [debug] [Thread-4  ]: SQL status: COMMIT in 0.006 seconds
+[0m22:02:09.037493 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: COMMIT
+[0m22:02:09.038844 [debug] [Thread-1  ]: SQL status: COMMIT in 0.005 seconds
+[0m22:02:09.039693 [debug] [Thread-2  ]: SQL status: COMMIT in 0.006 seconds
+[0m22:02:09.051905 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.stg_marcas"
+[0m22:02:09.052983 [debug] [Thread-4  ]: Applying DROP to: "sgfood_db"."staging"."stg_productos__dbt_backup"
+[0m22:02:09.057687 [debug] [Thread-1  ]: Applying DROP to: "sgfood_db"."staging"."stg_categorias__dbt_backup"
+[0m22:02:09.062133 [debug] [Thread-2  ]: Applying DROP to: "sgfood_db"."staging"."stg_clientes__dbt_backup"
+[0m22:02:09.063331 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: COMMIT
+[0m22:02:09.069291 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_productos"
+[0m22:02:09.070474 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_categorias"
+[0m22:02:09.071828 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_clientes"
+[0m22:02:09.073095 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_productos"} */
+drop view if exists "sgfood_db"."staging"."stg_productos__dbt_backup" cascade
+[0m22:02:09.074034 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_categorias"} */
+drop view if exists "sgfood_db"."staging"."stg_categorias__dbt_backup" cascade
+[0m22:02:09.074730 [debug] [Thread-3  ]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:09.075241 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_clientes"} */
+drop view if exists "sgfood_db"."staging"."stg_clientes__dbt_backup" cascade
+[0m22:02:09.076546 [debug] [Thread-4  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m22:02:09.080075 [debug] [Thread-3  ]: Applying DROP to: "sgfood_db"."staging"."stg_marcas__dbt_backup"
+[0m22:02:09.080656 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.004 seconds
+[0m22:02:09.084420 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_productos: Close
+[0m22:02:09.084985 [debug] [Thread-2  ]: SQL status: DROP VIEW in 0.004 seconds
+[0m22:02:09.085741 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.stg_marcas"
+[0m22:02:09.087410 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_categorias: Close
+[0m22:02:09.089780 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709397ceab50>]}
+[0m22:02:09.091227 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_clientes: Close
+[0m22:02:09.092125 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_marcas"} */
+drop view if exists "sgfood_db"."staging"."stg_marcas__dbt_backup" cascade
+[0m22:02:09.093340 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093901daca0>]}
+[0m22:02:09.094232 [info ] [Thread-4  ]: 4 of 13 OK created sql view model staging.stg_productos ........................ [[32mCREATE VIEW[0m in 0.65s]
+[0m22:02:09.095203 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093901dad30>]}
+[0m22:02:09.096334 [info ] [Thread-1  ]: 1 of 13 OK created sql view model staging.stg_categorias ....................... [[32mCREATE VIEW[0m in 0.67s]
+[0m22:02:09.097123 [debug] [Thread-3  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m22:02:09.097812 [debug] [Thread-4  ]: Finished running node model.sgfood_dbt.stg_productos
+[0m22:02:09.098876 [info ] [Thread-2  ]: 2 of 13 OK created sql view model staging.stg_clientes ......................... [[32mCREATE VIEW[0m in 0.67s]
+[0m22:02:09.099797 [debug] [Thread-1  ]: Finished running node model.sgfood_dbt.stg_categorias
+[0m22:02:09.101796 [debug] [Thread-3  ]: On model.sgfood_dbt.stg_marcas: Close
+[0m22:02:09.102628 [debug] [Thread-4  ]: Began running node model.sgfood_dbt.stg_sucursales
+[0m22:02:09.103821 [debug] [Thread-2  ]: Finished running node model.sgfood_dbt.stg_clientes
+[0m22:02:09.104588 [debug] [Thread-1  ]: Began running node model.sgfood_dbt.stg_ventas
+[0m22:02:09.105658 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70939394bc10>]}
+[0m22:02:09.106301 [info ] [Thread-4  ]: 5 of 13 START sql view model staging.stg_sucursales ............................ [RUN]
+[0m22:02:09.107070 [debug] [Thread-2  ]: Began running node model.sgfood_dbt.stg_ventas_detalle
+[0m22:02:09.108101 [info ] [Thread-1  ]: 6 of 13 START sql view model staging.stg_ventas ................................ [RUN]
+[0m22:02:09.109221 [info ] [Thread-3  ]: 3 of 13 OK created sql view model staging.stg_marcas ........................... [[32mCREATE VIEW[0m in 0.67s]
+[0m22:02:09.109992 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_productos, now model.sgfood_dbt.stg_sucursales)
+[0m22:02:09.110883 [info ] [Thread-2  ]: 7 of 13 START sql view model staging.stg_ventas_detalle ........................ [RUN]
+[0m22:02:09.111646 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_categorias, now model.sgfood_dbt.stg_ventas)
+[0m22:02:09.112498 [debug] [Thread-3  ]: Finished running node model.sgfood_dbt.stg_marcas
+[0m22:02:09.113164 [debug] [Thread-4  ]: Began compiling node model.sgfood_dbt.stg_sucursales
+[0m22:02:09.113895 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_clientes, now model.sgfood_dbt.stg_ventas_detalle)
+[0m22:02:09.114546 [debug] [Thread-1  ]: Began compiling node model.sgfood_dbt.stg_ventas
+[0m22:02:09.115281 [debug] [Thread-3  ]: Began running node model.sgfood_dbt.dim_clientes
+[0m22:02:09.119382 [debug] [Thread-4  ]: Writing injected SQL for node "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.120430 [debug] [Thread-2  ]: Began compiling node model.sgfood_dbt.stg_ventas_detalle
+[0m22:02:09.124958 [debug] [Thread-1  ]: Writing injected SQL for node "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.126339 [info ] [Thread-3  ]: 8 of 13 START sql table model analytics.dim_clientes ........................... [RUN]
+[0m22:02:09.130990 [debug] [Thread-2  ]: Writing injected SQL for node "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.132437 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_marcas, now model.sgfood_dbt.dim_clientes)
+[0m22:02:09.133586 [debug] [Thread-3  ]: Began compiling node model.sgfood_dbt.dim_clientes
+[0m22:02:09.140826 [debug] [Thread-3  ]: Writing injected SQL for node "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.143320 [debug] [Thread-2  ]: Began executing node model.sgfood_dbt.stg_ventas_detalle
+[0m22:02:09.144074 [debug] [Thread-1  ]: Began executing node model.sgfood_dbt.stg_ventas
+[0m22:02:09.144945 [debug] [Thread-4  ]: Began executing node model.sgfood_dbt.stg_sucursales
+[0m22:02:09.150233 [debug] [Thread-2  ]: Writing runtime sql for node "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.156032 [debug] [Thread-1  ]: Writing runtime sql for node "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.161420 [debug] [Thread-4  ]: Writing runtime sql for node "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.162316 [debug] [Thread-3  ]: Began executing node model.sgfood_dbt.dim_clientes
+[0m22:02:09.195870 [debug] [Thread-3  ]: Writing runtime sql for node "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.196821 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.197481 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.198603 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: BEGIN
+[0m22:02:09.199445 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.200266 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: BEGIN
+[0m22:02:09.201212 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:09.202422 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: BEGIN
+[0m22:02:09.203461 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:09.205304 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:09.211786 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.213029 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: BEGIN
+[0m22:02:09.214104 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:09.215109 [debug] [Thread-4  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:09.216335 [debug] [Thread-2  ]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:09.218064 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.219129 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:09.220046 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.221396 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_sucursales"} */
+
+  create view "sgfood_db"."staging"."stg_sucursales__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."sucursal"
+),
+
+renamed_and_cleaned as (
+    select
+        cast(id_sucursal as integer) as id_sucursal,
+        trim(nombre) as nombre_sucursal,
+        trim(ciudad) as ciudad,
+        trim(departamento) as departamento,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_sucursal is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:09.222404 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.223341 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas_detalle"} */
+
+  create view "sgfood_db"."staging"."stg_ventas_detalle__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."venta_detalle"
+),
+
+renamed_and_cleaned as (
+    select
+        cast(id_detalle as bigint) as id_detalle,
+        cast(id_venta as bigint) as id_venta,
+        cast(id_producto as integer) as id_producto,
+        cast(cantidad as integer) as cantidad,
+        cast(precio_unitario as numeric(12, 2)) as precio_unitario,
+        cast(descuento as numeric(5, 4)) as porcentaje_descuento,
+        cast(subtotal as numeric(14, 2)) as subtotal,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_detalle is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:09.224894 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas"} */
+
+  create view "sgfood_db"."staging"."stg_ventas__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "sgfood_db"."raw"."venta"
+),
+
+renamed_and_cleaned as (
+    select
+        cast(id_venta as bigint) as id_venta,
+        cast(fecha as date) as fecha_venta,
+        cast(id_cliente as integer) as id_cliente,
+        cast(id_sucursal as integer) as id_sucursal,
+        trim(canal) as canal_venta,
+        trim(metodo_pago) as metodo_pago,
+        trim(estado) as estado_venta,
+        cast(_extracted_at as timestamp) as extracted_at
+    from source
+    where id_venta is not null
+)
+
+select * from renamed_and_cleaned
+  );
+[0m22:02:09.225752 [debug] [Thread-3  ]: SQL status: BEGIN in 0.012 seconds
+[0m22:02:09.227200 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.228275 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_clientes"} */
+
+  
+    
+
+  create  table "sgfood_db"."analytics"."dim_clientes__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with clientes as (
+    select * from "sgfood_db"."staging"."stg_clientes"
+)
+
+select
+    id_cliente,
+    nit,
+    nombre_cliente,
+    tipo_cliente,
+    municipio,
+    departamento,
+    fecha_alta
+from clientes
+  );
+  
+[0m22:02:09.229454 [debug] [Thread-4  ]: SQL status: CREATE VIEW in 0.005 seconds
+[0m22:02:09.230278 [debug] [Thread-2  ]: SQL status: CREATE VIEW in 0.004 seconds
+[0m22:02:09.230965 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.004 seconds
+[0m22:02:09.236314 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.244241 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.245181 [debug] [Thread-3  ]: SQL status: SELECT 250 in 0.016 seconds
+[0m22:02:09.249416 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.250363 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_sucursales"} */
+alter table "sgfood_db"."staging"."stg_sucursales__dbt_tmp" rename to "stg_sucursales"
+[0m22:02:09.251426 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas_detalle"} */
+alter table "sgfood_db"."staging"."stg_ventas_detalle__dbt_tmp" rename to "stg_ventas_detalle"
+[0m22:02:09.256240 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.257180 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas"} */
+alter table "sgfood_db"."staging"."stg_ventas__dbt_tmp" rename to "stg_ventas"
+[0m22:02:09.258520 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_clientes"} */
+alter table "sgfood_db"."analytics"."dim_clientes__dbt_tmp" rename to "dim_clientes"
+[0m22:02:09.259086 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m22:02:09.259694 [debug] [Thread-2  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m22:02:09.262686 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: COMMIT
+[0m22:02:09.263472 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m22:02:09.264135 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m22:02:09.265592 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: COMMIT
+[0m22:02:09.266384 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.268285 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: COMMIT
+[0m22:02:09.274843 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: COMMIT
+[0m22:02:09.275546 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.276807 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: COMMIT
+[0m22:02:09.277824 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.278841 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.279643 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: COMMIT
+[0m22:02:09.280726 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: COMMIT
+[0m22:02:09.281490 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: COMMIT
+[0m22:02:09.282632 [debug] [Thread-4  ]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:09.287333 [debug] [Thread-4  ]: Applying DROP to: "sgfood_db"."staging"."stg_sucursales__dbt_backup"
+[0m22:02:09.288390 [debug] [Thread-1  ]: SQL status: COMMIT in 0.006 seconds
+[0m22:02:09.289025 [debug] [Thread-2  ]: SQL status: COMMIT in 0.007 seconds
+[0m22:02:09.289913 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.stg_sucursales"
+[0m22:02:09.290443 [debug] [Thread-3  ]: SQL status: COMMIT in 0.007 seconds
+[0m22:02:09.294513 [debug] [Thread-1  ]: Applying DROP to: "sgfood_db"."staging"."stg_ventas__dbt_backup"
+[0m22:02:09.298331 [debug] [Thread-2  ]: Applying DROP to: "sgfood_db"."staging"."stg_ventas_detalle__dbt_backup"
+[0m22:02:09.299310 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_sucursales"} */
+drop view if exists "sgfood_db"."staging"."stg_sucursales__dbt_backup" cascade
+[0m22:02:09.303196 [debug] [Thread-3  ]: Applying DROP to: "sgfood_db"."analytics"."dim_clientes__dbt_backup"
+[0m22:02:09.306021 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.stg_ventas"
+[0m22:02:09.307055 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.stg_ventas_detalle"
+[0m22:02:09.311781 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_clientes"
+[0m22:02:09.312654 [debug] [Thread-4  ]: SQL status: DROP VIEW in 0.005 seconds
+[0m22:02:09.313327 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas"} */
+drop view if exists "sgfood_db"."staging"."stg_ventas__dbt_backup" cascade
+[0m22:02:09.314177 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.stg_ventas_detalle"} */
+drop view if exists "sgfood_db"."staging"."stg_ventas_detalle__dbt_backup" cascade
+[0m22:02:09.314967 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_clientes"} */
+drop table if exists "sgfood_db"."analytics"."dim_clientes__dbt_backup" cascade
+[0m22:02:09.316901 [debug] [Thread-4  ]: On model.sgfood_dbt.stg_sucursales: Close
+[0m22:02:09.318770 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m22:02:09.319698 [debug] [Thread-2  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m22:02:09.320493 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.001 seconds
+[0m22:02:09.321579 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393a6f850>]}
+[0m22:02:09.323508 [debug] [Thread-1  ]: On model.sgfood_dbt.stg_ventas: Close
+[0m22:02:09.325982 [debug] [Thread-2  ]: On model.sgfood_dbt.stg_ventas_detalle: Close
+[0m22:02:09.329211 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_clientes: Close
+[0m22:02:09.330758 [info ] [Thread-4  ]: 5 of 13 OK created sql view model staging.stg_sucursales ....................... [[32mCREATE VIEW[0m in 0.21s]
+[0m22:02:09.332008 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093901f2c70>]}
+[0m22:02:09.332820 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393b3f670>]}
+[0m22:02:09.333592 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093901da490>]}
+[0m22:02:09.334317 [debug] [Thread-4  ]: Finished running node model.sgfood_dbt.stg_sucursales
+[0m22:02:09.335740 [info ] [Thread-1  ]: 6 of 13 OK created sql view model staging.stg_ventas ........................... [[32mCREATE VIEW[0m in 0.22s]
+[0m22:02:09.337035 [info ] [Thread-2  ]: 7 of 13 OK created sql view model staging.stg_ventas_detalle ................... [[32mCREATE VIEW[0m in 0.22s]
+[0m22:02:09.338086 [info ] [Thread-3  ]: 8 of 13 OK created sql table model analytics.dim_clientes ...................... [[32mSELECT 250[0m in 0.20s]
+[0m22:02:09.339186 [debug] [Thread-4  ]: Began running node model.sgfood_dbt.int_productos_enriquecidos
+[0m22:02:09.340395 [debug] [Thread-1  ]: Finished running node model.sgfood_dbt.stg_ventas
+[0m22:02:09.341595 [debug] [Thread-2  ]: Finished running node model.sgfood_dbt.stg_ventas_detalle
+[0m22:02:09.342680 [debug] [Thread-3  ]: Finished running node model.sgfood_dbt.dim_clientes
+[0m22:02:09.343976 [info ] [Thread-4  ]: 9 of 13 START sql view model intermediate.int_productos_enriquecidos ........... [RUN]
+[0m22:02:09.344836 [debug] [Thread-1  ]: Began running node model.sgfood_dbt.dim_sucursales
+[0m22:02:09.346127 [debug] [Thread-2  ]: Began running node model.sgfood_dbt.int_ventas_detalladas
+[0m22:02:09.347261 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_sucursales, now model.sgfood_dbt.int_productos_enriquecidos)
+[0m22:02:09.348341 [info ] [Thread-1  ]: 10 of 13 START sql table model analytics.dim_sucursales ........................ [RUN]
+[0m22:02:09.349180 [info ] [Thread-2  ]: 11 of 13 START sql view model intermediate.int_ventas_detalladas ............... [RUN]
+[0m22:02:09.349942 [debug] [Thread-4  ]: Began compiling node model.sgfood_dbt.int_productos_enriquecidos
+[0m22:02:09.350801 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_ventas, now model.sgfood_dbt.dim_sucursales)
+[0m22:02:09.351762 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.stg_ventas_detalle, now model.sgfood_dbt.int_ventas_detalladas)
+[0m22:02:09.356494 [debug] [Thread-4  ]: Writing injected SQL for node "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.357369 [debug] [Thread-1  ]: Began compiling node model.sgfood_dbt.dim_sucursales
+[0m22:02:09.358484 [debug] [Thread-2  ]: Began compiling node model.sgfood_dbt.int_ventas_detalladas
+[0m22:02:09.362395 [debug] [Thread-1  ]: Writing injected SQL for node "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.366229 [debug] [Thread-2  ]: Writing injected SQL for node "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.372853 [debug] [Thread-4  ]: Began executing node model.sgfood_dbt.int_productos_enriquecidos
+[0m22:02:09.377989 [debug] [Thread-4  ]: Writing runtime sql for node "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.379955 [debug] [Thread-2  ]: Began executing node model.sgfood_dbt.int_ventas_detalladas
+[0m22:02:09.385057 [debug] [Thread-2  ]: Writing runtime sql for node "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.385985 [debug] [Thread-1  ]: Began executing node model.sgfood_dbt.dim_sucursales
+[0m22:02:09.392348 [debug] [Thread-1  ]: Writing runtime sql for node "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.403418 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.405374 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.406879 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: BEGIN
+[0m22:02:09.409765 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: BEGIN
+[0m22:02:09.411395 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:09.412913 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.414405 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:09.416955 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: BEGIN
+[0m22:02:09.421154 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:09.429959 [debug] [Thread-4  ]: SQL status: BEGIN in 0.018 seconds
+[0m22:02:09.432424 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.433818 [debug] [Thread-1  ]: SQL status: BEGIN in 0.019 seconds
+[0m22:02:09.435546 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_productos_enriquecidos"} */
+
+  create view "sgfood_db"."intermediate"."int_productos_enriquecidos__dbt_tmp"
+    
+    
+  as (
+    with productos as (
+    select * from "sgfood_db"."staging"."stg_productos"
+),
+
+categorias as (
+    select * from "sgfood_db"."staging"."stg_categorias"
+),
+
+marcas as (
+    select * from "sgfood_db"."staging"."stg_marcas"
+)
+
+select
+    p.id_producto,
+    p.sku,
+    p.nombre_producto,
+    p.id_categoria,
+    coalesce(c.nombre_categoria, 'Sin Categoría') as categoria,
+    p.id_marca,
+    coalesce(m.nombre_marca, 'Sin Marca') as marca,
+    p.unidad_medida,
+    p.costo_base,
+    p.precio_lista,
+    cast((p.precio_lista - p.costo_base) as numeric(12, 2)) as margen_unitario_teorico,
+    p.es_activo
+from productos p
+left join categorias c on p.id_categoria = c.id_categoria
+left join marcas m on p.id_marca = m.id_marca
+  );
+[0m22:02:09.438043 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.439850 [debug] [Thread-2  ]: SQL status: BEGIN in 0.019 seconds
+[0m22:02:09.441795 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_sucursales"} */
+
+  
+    
+
+  create  table "sgfood_db"."analytics"."dim_sucursales__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with sucursales as (
+    select * from "sgfood_db"."staging"."stg_sucursales"
+)
+
+select
+    id_sucursal,
+    nombre_sucursal,
+    ciudad,
+    departamento
+from sucursales
+  );
+  
+[0m22:02:09.443657 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.446056 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_ventas_detalladas"} */
+
+  create view "sgfood_db"."intermediate"."int_ventas_detalladas__dbt_tmp"
+    
+    
+  as (
+    with ventas as (
+    select * from "sgfood_db"."staging"."stg_ventas"
+),
+
+ventas_detalle as (
+    select * from "sgfood_db"."staging"."stg_ventas_detalle"
+)
+
+select
+    vd.id_detalle,
+    vd.id_venta,
+    v.id_cliente,
+    vd.id_producto,
+    v.id_sucursal,
+    v.fecha_venta,
+    v.canal_venta,
+    v.metodo_pago,
+    v.estado_venta,
+    vd.cantidad,
+    vd.precio_unitario,
+    vd.porcentaje_descuento,
+    cast(vd.cantidad * vd.precio_unitario as numeric(14, 2)) as monto_bruto,
+    cast(round((vd.cantidad * vd.precio_unitario) * vd.porcentaje_descuento, 2) as numeric(14, 2)) as monto_descuento,
+    vd.subtotal as monto_neto
+from ventas_detalle vd
+inner join ventas v on vd.id_venta = v.id_venta
+  );
+[0m22:02:09.447453 [debug] [Thread-4  ]: SQL status: CREATE VIEW in 0.006 seconds
+[0m22:02:09.470032 [debug] [Thread-2  ]: SQL status: CREATE VIEW in 0.021 seconds
+[0m22:02:09.472279 [debug] [Thread-1  ]: SQL status: SELECT 6 in 0.027 seconds
+[0m22:02:09.473955 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.484421 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.492209 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.493498 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_productos_enriquecidos"} */
+alter table "sgfood_db"."intermediate"."int_productos_enriquecidos__dbt_tmp" rename to "int_productos_enriquecidos"
+[0m22:02:09.495137 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_ventas_detalladas"} */
+alter table "sgfood_db"."intermediate"."int_ventas_detalladas__dbt_tmp" rename to "int_ventas_detalladas"
+[0m22:02:09.496547 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_sucursales"} */
+alter table "sgfood_db"."analytics"."dim_sucursales__dbt_tmp" rename to "dim_sucursales"
+[0m22:02:09.499557 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m22:02:09.504518 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: COMMIT
+[0m22:02:09.505702 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.004 seconds
+[0m22:02:09.506442 [debug] [Thread-2  ]: SQL status: ALTER TABLE in 0.005 seconds
+[0m22:02:09.507113 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.511214 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: COMMIT
+[0m22:02:09.515440 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: COMMIT
+[0m22:02:09.517406 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: COMMIT
+[0m22:02:09.518629 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.519885 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.521474 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: COMMIT
+[0m22:02:09.522774 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: COMMIT
+[0m22:02:09.523914 [debug] [Thread-4  ]: SQL status: COMMIT in 0.003 seconds
+[0m22:02:09.529343 [debug] [Thread-4  ]: Applying DROP to: "sgfood_db"."intermediate"."int_productos_enriquecidos__dbt_backup"
+[0m22:02:09.530311 [debug] [Thread-1  ]: SQL status: COMMIT in 0.006 seconds
+[0m22:02:09.531107 [debug] [Thread-2  ]: SQL status: COMMIT in 0.006 seconds
+[0m22:02:09.532199 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.int_productos_enriquecidos"
+[0m22:02:09.537218 [debug] [Thread-1  ]: Applying DROP to: "sgfood_db"."analytics"."dim_sucursales__dbt_backup"
+[0m22:02:09.543143 [debug] [Thread-2  ]: Applying DROP to: "sgfood_db"."intermediate"."int_ventas_detalladas__dbt_backup"
+[0m22:02:09.544834 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_productos_enriquecidos"} */
+drop view if exists "sgfood_db"."intermediate"."int_productos_enriquecidos__dbt_backup" cascade
+[0m22:02:09.547454 [debug] [Thread-1  ]: Using postgres connection "model.sgfood_dbt.dim_sucursales"
+[0m22:02:09.549838 [debug] [Thread-2  ]: Using postgres connection "model.sgfood_dbt.int_ventas_detalladas"
+[0m22:02:09.552375 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_sucursales"} */
+drop table if exists "sgfood_db"."analytics"."dim_sucursales__dbt_backup" cascade
+[0m22:02:09.553368 [debug] [Thread-4  ]: SQL status: DROP VIEW in 0.002 seconds
+[0m22:02:09.554261 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.int_ventas_detalladas"} */
+drop view if exists "sgfood_db"."intermediate"."int_ventas_detalladas__dbt_backup" cascade
+[0m22:02:09.558216 [debug] [Thread-4  ]: On model.sgfood_dbt.int_productos_enriquecidos: Close
+[0m22:02:09.559252 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m22:02:09.561526 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093939affd0>]}
+[0m22:02:09.562437 [debug] [Thread-2  ]: SQL status: DROP VIEW in 0.002 seconds
+[0m22:02:09.565151 [debug] [Thread-1  ]: On model.sgfood_dbt.dim_sucursales: Close
+[0m22:02:09.567029 [info ] [Thread-4  ]: 9 of 13 OK created sql view model intermediate.int_productos_enriquecidos ...... [[32mCREATE VIEW[0m in 0.21s]
+[0m22:02:09.570161 [debug] [Thread-2  ]: On model.sgfood_dbt.int_ventas_detalladas: Close
+[0m22:02:09.572207 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393992640>]}
+[0m22:02:09.576357 [debug] [Thread-4  ]: Finished running node model.sgfood_dbt.int_productos_enriquecidos
+[0m22:02:09.578765 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709395567fa0>]}
+[0m22:02:09.580524 [info ] [Thread-1  ]: 10 of 13 OK created sql table model analytics.dim_sucursales ................... [[32mSELECT 6[0m in 0.22s]
+[0m22:02:09.583679 [info ] [Thread-2  ]: 11 of 13 OK created sql view model intermediate.int_ventas_detalladas .......... [[32mCREATE VIEW[0m in 0.23s]
+[0m22:02:09.584729 [debug] [Thread-3  ]: Began running node model.sgfood_dbt.dim_productos
+[0m22:02:09.586266 [debug] [Thread-1  ]: Finished running node model.sgfood_dbt.dim_sucursales
+[0m22:02:09.587736 [debug] [Thread-2  ]: Finished running node model.sgfood_dbt.int_ventas_detalladas
+[0m22:02:09.589497 [info ] [Thread-3  ]: 12 of 13 START sql table model analytics.dim_productos ......................... [RUN]
+[0m22:02:09.592059 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.dim_clientes, now model.sgfood_dbt.dim_productos)
+[0m22:02:09.593047 [debug] [Thread-4  ]: Began running node model.sgfood_dbt.fct_ventas
+[0m22:02:09.593745 [debug] [Thread-3  ]: Began compiling node model.sgfood_dbt.dim_productos
+[0m22:02:09.595500 [info ] [Thread-4  ]: 13 of 13 START sql table model analytics.fct_ventas ............................ [RUN]
+[0m22:02:09.601616 [debug] [Thread-3  ]: Writing injected SQL for node "model.sgfood_dbt.dim_productos"
+[0m22:02:09.603792 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly model.sgfood_dbt.int_productos_enriquecidos, now model.sgfood_dbt.fct_ventas)
+[0m22:02:09.605795 [debug] [Thread-4  ]: Began compiling node model.sgfood_dbt.fct_ventas
+[0m22:02:09.613952 [debug] [Thread-4  ]: Writing injected SQL for node "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.622937 [debug] [Thread-3  ]: Began executing node model.sgfood_dbt.dim_productos
+[0m22:02:09.638084 [debug] [Thread-3  ]: Writing runtime sql for node "model.sgfood_dbt.dim_productos"
+[0m22:02:09.639247 [debug] [Thread-4  ]: Began executing node model.sgfood_dbt.fct_ventas
+[0m22:02:09.650779 [debug] [Thread-4  ]: Writing runtime sql for node "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.658765 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_productos"
+[0m22:02:09.660252 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: BEGIN
+[0m22:02:09.661671 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:09.665329 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.667129 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: BEGIN
+[0m22:02:09.668574 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:09.676114 [debug] [Thread-3  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:09.678139 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_productos"
+[0m22:02:09.679905 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_productos"} */
+
+  
+    
+
+  create  table "sgfood_db"."analytics"."dim_productos__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with productos_enriquecidos as (
+    select * from "sgfood_db"."intermediate"."int_productos_enriquecidos"
+)
+
+select
+    id_producto,
+    sku,
+    nombre_producto,
+    id_categoria,
+    categoria,
+    id_marca,
+    marca,
+    unidad_medida,
+    costo_base,
+    precio_lista,
+    margen_unitario_teorico,
+    es_activo
+from productos_enriquecidos
+  );
+  
+[0m22:02:09.681754 [debug] [Thread-4  ]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:09.683335 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.684857 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.fct_ventas"} */
+
+  
+    
+
+  create  table "sgfood_db"."analytics"."fct_ventas__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with ventas_detalladas as (
+    select * from "sgfood_db"."intermediate"."int_ventas_detalladas"
+)
+
+select
+    id_detalle,
+    id_venta,
+    id_cliente,
+    id_producto,
+    id_sucursal,
+    fecha_venta,
+    canal_venta,
+    metodo_pago,
+    estado_venta,
+    cantidad,
+    precio_unitario,
+    porcentaje_descuento,
+    monto_bruto,
+    monto_descuento,
+    monto_neto
+from ventas_detalladas
+  );
+  
+[0m22:02:09.694440 [debug] [Thread-3  ]: SQL status: SELECT 80 in 0.013 seconds
+[0m22:02:09.700919 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_productos"
+[0m22:02:09.702244 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_productos"} */
+alter table "sgfood_db"."analytics"."dim_productos__dbt_tmp" rename to "dim_productos"
+[0m22:02:09.704454 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m22:02:09.707883 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: COMMIT
+[0m22:02:09.708708 [debug] [Thread-4  ]: SQL status: SELECT 3209 in 0.023 seconds
+[0m22:02:09.709581 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_productos"
+[0m22:02:09.716667 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.717705 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: COMMIT
+[0m22:02:09.718961 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.fct_ventas"} */
+alter table "sgfood_db"."analytics"."fct_ventas__dbt_tmp" rename to "fct_ventas"
+[0m22:02:09.721124 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m22:02:09.724268 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: COMMIT
+[0m22:02:09.725654 [debug] [Thread-3  ]: SQL status: COMMIT in 0.005 seconds
+[0m22:02:09.726587 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.731891 [debug] [Thread-3  ]: Applying DROP to: "sgfood_db"."analytics"."dim_productos__dbt_backup"
+[0m22:02:09.733452 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: COMMIT
+[0m22:02:09.735276 [debug] [Thread-3  ]: Using postgres connection "model.sgfood_dbt.dim_productos"
+[0m22:02:09.737113 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.dim_productos"} */
+drop table if exists "sgfood_db"."analytics"."dim_productos__dbt_backup" cascade
+[0m22:02:09.738374 [debug] [Thread-4  ]: SQL status: COMMIT in 0.002 seconds
+[0m22:02:09.739117 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.001 seconds
+[0m22:02:09.745637 [debug] [Thread-4  ]: Applying DROP to: "sgfood_db"."analytics"."fct_ventas__dbt_backup"
+[0m22:02:09.748265 [debug] [Thread-3  ]: On model.sgfood_dbt.dim_productos: Close
+[0m22:02:09.749944 [debug] [Thread-4  ]: Using postgres connection "model.sgfood_dbt.fct_ventas"
+[0m22:02:09.751802 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093939affd0>]}
+[0m22:02:09.752621 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "model.sgfood_dbt.fct_ventas"} */
+drop table if exists "sgfood_db"."analytics"."fct_ventas__dbt_backup" cascade
+[0m22:02:09.754652 [info ] [Thread-3  ]: 12 of 13 OK created sql table model analytics.dim_productos .................... [[32mSELECT 80[0m in 0.16s]
+[0m22:02:09.756872 [debug] [Thread-3  ]: Finished running node model.sgfood_dbt.dim_productos
+[0m22:02:09.757663 [debug] [Thread-4  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m22:02:09.761712 [debug] [Thread-4  ]: On model.sgfood_dbt.fct_ventas: Close
+[0m22:02:09.763939 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0adee2b3-8617-4298-98ff-f2172fea6dbd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709395567fa0>]}
+[0m22:02:09.765990 [info ] [Thread-4  ]: 13 of 13 OK created sql table model analytics.fct_ventas ....................... [[32mSELECT 3209[0m in 0.16s]
+[0m22:02:09.768648 [debug] [Thread-4  ]: Finished running node model.sgfood_dbt.fct_ventas
+[0m22:02:09.772866 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:09.774001 [debug] [MainThread]: On master: BEGIN
+[0m22:02:09.775054 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:02:09.787821 [debug] [MainThread]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:09.788918 [debug] [MainThread]: On master: COMMIT
+[0m22:02:09.789681 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:09.790423 [debug] [MainThread]: On master: COMMIT
+[0m22:02:09.792030 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m22:02:09.793605 [debug] [MainThread]: On master: Close
+[0m22:02:09.796095 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:02:09.797061 [debug] [MainThread]: Connection 'model.sgfood_dbt.int_ventas_detalladas' was properly closed.
+[0m22:02:09.797841 [debug] [MainThread]: Connection 'model.sgfood_dbt.dim_productos' was properly closed.
+[0m22:02:09.798612 [debug] [MainThread]: Connection 'model.sgfood_dbt.dim_sucursales' was properly closed.
+[0m22:02:09.799407 [debug] [MainThread]: Connection 'model.sgfood_dbt.fct_ventas' was properly closed.
+[0m22:02:09.800832 [info ] [MainThread]: 
+[0m22:02:09.801813 [info ] [MainThread]: Finished running 4 table models, 9 view models in 0 hours 0 minutes and 1.72 seconds (1.72s).
+[0m22:02:09.805820 [debug] [MainThread]: Command end result
+[0m22:02:09.900961 [info ] [MainThread]: 
+[0m22:02:09.903213 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:02:09.904332 [info ] [MainThread]: 
+[0m22:02:09.905159 [info ] [MainThread]: Done. PASS=13 WARN=0 ERROR=0 SKIP=0 TOTAL=13
+[0m22:02:09.907921 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 4.9345083, "process_user_time": 5.342403, "process_kernel_time": 0.580696, "process_mem_max_rss": "117264", "process_out_blocks": "1648", "process_in_blocks": "0"}
+[0m22:02:09.909425 [debug] [MainThread]: Command `python -m dbt.cli.main run` succeeded at 22:02:09.909251 after 4.94 seconds
+[0m22:02:09.910381 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093964cce20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x709393d34fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7093916c07f0>]}
+[0m22:02:09.911407 [debug] [MainThread]: Flushing usage events
+[0m22:02:10.471295 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:02:13.599219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c404a90aeb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4049a27f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c404a11b610>]}
+
+
+============================== 22:02:13.606334 | 272c4a22-aa30-4055-b5fa-5f8850020199 ==============================
+[0m22:02:13.606334 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m22:02:13.607137 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/opt/airflow/sgfood_dbt/logs', 'profiles_dir': '.', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt test --profiles-dir .', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m22:02:13.839485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c40499c20d0>]}
+[0m22:02:13.898237 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c404a10c250>]}
+[0m22:02:13.899964 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m22:02:13.918801 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m22:02:14.343354 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:02:14.344366 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:02:14.408284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4047de8910>]}
+[0m22:02:14.571472 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4047c85ee0>]}
+[0m22:02:14.572485 [info ] [MainThread]: Found 13 models, 25 data tests, 12 sources, 424 macros
+[0m22:02:14.573167 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4047f03610>]}
+[0m22:02:14.576556 [info ] [MainThread]: 
+[0m22:02:14.577240 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:02:14.577863 [info ] [MainThread]: 
+[0m22:02:14.578678 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m22:02:14.584609 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db_staging'
+[0m22:02:14.592895 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db_analytics'
+[0m22:02:14.599970 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sgfood_db_intermediate'
+[0m22:02:14.703714 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_staging"
+[0m22:02:14.704264 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_analytics"
+[0m22:02:14.704890 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_intermediate"
+[0m22:02:14.705397 [debug] [ThreadPool]: On list_sgfood_db_staging: BEGIN
+[0m22:02:14.706167 [debug] [ThreadPool]: On list_sgfood_db_analytics: BEGIN
+[0m22:02:14.706784 [debug] [ThreadPool]: On list_sgfood_db_intermediate: BEGIN
+[0m22:02:14.707453 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:14.708070 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:14.708661 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:02:14.717556 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:14.718202 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m22:02:14.718579 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:14.719243 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_analytics"
+[0m22:02:14.719966 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_staging"
+[0m22:02:14.720909 [debug] [ThreadPool]: Using postgres connection "list_sgfood_db_intermediate"
+[0m22:02:14.721495 [debug] [ThreadPool]: On list_sgfood_db_analytics: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_analytics"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics'
+  
+[0m22:02:14.722120 [debug] [ThreadPool]: On list_sgfood_db_staging: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_staging"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m22:02:14.722689 [debug] [ThreadPool]: On list_sgfood_db_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "list_sgfood_db_intermediate"} */
+select
+      'sgfood_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'sgfood_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'sgfood_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'intermediate'
+  
+[0m22:02:14.726430 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.003 seconds
+[0m22:02:14.726884 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.003 seconds
+[0m22:02:14.727300 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.004 seconds
+[0m22:02:14.728904 [debug] [ThreadPool]: On list_sgfood_db_analytics: ROLLBACK
+[0m22:02:14.730292 [debug] [ThreadPool]: On list_sgfood_db_intermediate: ROLLBACK
+[0m22:02:14.731872 [debug] [ThreadPool]: On list_sgfood_db_staging: ROLLBACK
+[0m22:02:14.733162 [debug] [ThreadPool]: On list_sgfood_db_analytics: Close
+[0m22:02:14.733687 [debug] [ThreadPool]: On list_sgfood_db_intermediate: Close
+[0m22:02:14.734403 [debug] [ThreadPool]: On list_sgfood_db_staging: Close
+[0m22:02:14.743611 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:14.744336 [debug] [MainThread]: On master: BEGIN
+[0m22:02:14.744809 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:02:14.751926 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m22:02:14.752686 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:14.753257 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m22:02:14.762091 [debug] [MainThread]: SQL status: SELECT 12 in 0.008 seconds
+[0m22:02:14.764767 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '272c4a22-aa30-4055-b5fa-5f8850020199', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4047c3ddf0>]}
+[0m22:02:14.765479 [debug] [MainThread]: On master: ROLLBACK
+[0m22:02:14.766263 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:14.766919 [debug] [MainThread]: On master: BEGIN
+[0m22:02:14.767914 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m22:02:14.768397 [debug] [MainThread]: On master: COMMIT
+[0m22:02:14.768919 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:14.769479 [debug] [MainThread]: On master: COMMIT
+[0m22:02:14.770097 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m22:02:14.770572 [debug] [MainThread]: On master: Close
+[0m22:02:14.779732 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7
+[0m22:02:14.780327 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f
+[0m22:02:14.781032 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9
+[0m22:02:14.782039 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2
+[0m22:02:14.781646 [info ] [Thread-1  ]: 1 of 25 START test not_null_dim_clientes_fecha_alta ............................ [RUN]
+[0m22:02:14.782835 [info ] [Thread-2  ]: 2 of 25 START test not_null_dim_clientes_id_cliente ............................ [RUN]
+[0m22:02:14.783457 [info ] [Thread-3  ]: 3 of 25 START test not_null_dim_clientes_nombre_cliente ........................ [RUN]
+[0m22:02:14.784224 [info ] [Thread-4  ]: 4 of 25 START test not_null_dim_productos_id_producto .......................... [RUN]
+[0m22:02:14.785032 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_sgfood_db_staging, now test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7)
+[0m22:02:14.785695 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly list_sgfood_db_analytics, now test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f)
+[0m22:02:14.786330 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly list_sgfood_db_intermediate, now test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9)
+[0m22:02:14.787036 [debug] [Thread-4  ]: Acquiring new postgres connection 'test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2'
+[0m22:02:14.787767 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7
+[0m22:02:14.788387 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f
+[0m22:02:14.788969 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9
+[0m22:02:14.789551 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2
+[0m22:02:14.814146 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f"
+[0m22:02:14.816286 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7"
+[0m22:02:14.820693 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9"
+[0m22:02:14.825797 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2"
+[0m22:02:14.834411 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f
+[0m22:02:14.851371 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7
+[0m22:02:14.852139 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f"
+[0m22:02:14.855240 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7"
+[0m22:02:14.856086 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9
+[0m22:02:14.860289 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9"
+[0m22:02:14.861163 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2
+[0m22:02:14.864677 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2"
+[0m22:02:14.872163 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7"
+[0m22:02:14.873103 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7: BEGIN
+[0m22:02:14.873912 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:14.875159 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f"
+[0m22:02:14.877091 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f: BEGIN
+[0m22:02:14.877964 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9"
+[0m22:02:14.878793 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:14.879350 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2"
+[0m22:02:14.880238 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9: BEGIN
+[0m22:02:14.881625 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2: BEGIN
+[0m22:02:14.883033 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:14.883745 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:14.884718 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m22:02:14.885530 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7"
+[0m22:02:14.887943 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select fecha_alta
+from "sgfood_db"."analytics"."dim_clientes"
+where fecha_alta is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:14.888592 [debug] [Thread-2  ]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:14.890493 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:14.891022 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f"
+[0m22:02:14.896668 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7: ROLLBACK
+[0m22:02:14.898173 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_cliente
+from "sgfood_db"."analytics"."dim_clientes"
+where id_cliente is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:14.898832 [debug] [Thread-4  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:14.899354 [debug] [Thread-3  ]: SQL status: BEGIN in 0.016 seconds
+[0m22:02:14.900109 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7: Close
+[0m22:02:14.900854 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2"
+[0m22:02:14.901515 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:14.901983 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9"
+[0m22:02:14.903025 [info ] [Thread-1  ]: 1 of 25 PASS not_null_dim_clientes_fecha_alta .................................. [[32mPASS[0m in 0.12s]
+[0m22:02:14.905425 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_producto
+from "sgfood_db"."analytics"."dim_productos"
+where id_producto is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:14.907302 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f: ROLLBACK
+[0m22:02:14.908112 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select nombre_cliente
+from "sgfood_db"."analytics"."dim_clientes"
+where nombre_cliente is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:14.908985 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7
+[0m22:02:14.910149 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f: Close
+[0m22:02:14.910838 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:14.911670 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae
+[0m22:02:14.912311 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:14.914769 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2: ROLLBACK
+[0m22:02:14.913360 [info ] [Thread-2  ]: 2 of 25 PASS not_null_dim_clientes_id_cliente .................................. [[32mPASS[0m in 0.13s]
+[0m22:02:14.915700 [info ] [Thread-1  ]: 5 of 25 START test not_null_dim_productos_nombre_producto ...................... [RUN]
+[0m22:02:14.917113 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9: ROLLBACK
+[0m22:02:14.917992 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2: Close
+[0m22:02:14.918598 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f
+[0m22:02:14.919319 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_clientes_fecha_alta.507777c5d7, now test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae)
+[0m22:02:14.920498 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9: Close
+[0m22:02:14.921642 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a
+[0m22:02:14.921195 [info ] [Thread-4  ]: 4 of 25 PASS not_null_dim_productos_id_producto ................................ [[32mPASS[0m in 0.13s]
+[0m22:02:14.922440 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae
+[0m22:02:14.923387 [info ] [Thread-3  ]: 3 of 25 PASS not_null_dim_clientes_nombre_cliente .............................. [[32mPASS[0m in 0.14s]
+[0m22:02:14.924044 [info ] [Thread-2  ]: 6 of 25 START test not_null_dim_productos_precio_lista ......................... [RUN]
+[0m22:02:14.924949 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2
+[0m22:02:14.930141 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae"
+[0m22:02:14.931023 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9
+[0m22:02:14.931787 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_clientes_id_cliente.bb6b3a554f, now test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a)
+[0m22:02:14.932496 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9
+[0m22:02:14.933607 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8
+[0m22:02:14.934400 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a
+[0m22:02:14.935149 [info ] [Thread-4  ]: 7 of 25 START test not_null_dim_productos_sku .................................. [RUN]
+[0m22:02:14.935973 [info ] [Thread-3  ]: 8 of 25 START test not_null_dim_sucursales_id_sucursal ......................... [RUN]
+[0m22:02:14.941493 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a"
+[0m22:02:14.942965 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_productos_id_producto.70f83f02e2, now test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9)
+[0m22:02:14.945399 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_clientes_nombre_cliente.eec50f00b9, now test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8)
+[0m22:02:14.946643 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae
+[0m22:02:14.947217 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9
+[0m22:02:14.948019 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8
+[0m22:02:14.953303 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae"
+[0m22:02:14.959219 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9"
+[0m22:02:14.965347 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8"
+[0m22:02:14.967890 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a
+[0m22:02:14.971988 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a"
+[0m22:02:14.973745 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9
+[0m22:02:14.977300 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9"
+[0m22:02:14.979837 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae"
+[0m22:02:14.980516 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8
+[0m22:02:14.981429 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae: BEGIN
+[0m22:02:14.985785 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8"
+[0m22:02:14.986757 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a"
+[0m22:02:14.987472 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:14.988330 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9"
+[0m22:02:14.989453 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a: BEGIN
+[0m22:02:14.990813 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9: BEGIN
+[0m22:02:14.992736 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:14.993634 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:14.998352 [debug] [Thread-1  ]: SQL status: BEGIN in 0.011 seconds
+[0m22:02:14.999381 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae"
+[0m22:02:15.000462 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select nombre_producto
+from "sgfood_db"."analytics"."dim_productos"
+where nombre_producto is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.002776 [debug] [Thread-4  ]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:15.003545 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8"
+[0m22:02:15.004388 [debug] [Thread-2  ]: SQL status: BEGIN in 0.012 seconds
+[0m22:02:15.005001 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.004 seconds
+[0m22:02:15.005898 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9"
+[0m22:02:15.006734 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8: BEGIN
+[0m22:02:15.007652 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a"
+[0m22:02:15.009989 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae: ROLLBACK
+[0m22:02:15.010806 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select sku
+from "sgfood_db"."analytics"."dim_productos"
+where sku is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.011631 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:15.012483 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select precio_lista
+from "sgfood_db"."analytics"."dim_productos"
+where precio_lista is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.013719 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae: Close
+[0m22:02:15.014735 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:15.016436 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:15.019368 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9: ROLLBACK
+[0m22:02:15.017532 [info ] [Thread-1  ]: 5 of 25 PASS not_null_dim_productos_nombre_producto ............................ [[32mPASS[0m in 0.10s]
+[0m22:02:15.021741 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a: ROLLBACK
+[0m22:02:15.023002 [debug] [Thread-3  ]: SQL status: BEGIN in 0.011 seconds
+[0m22:02:15.023734 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9: Close
+[0m22:02:15.024488 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae
+[0m22:02:15.025474 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a: Close
+[0m22:02:15.025983 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8"
+[0m22:02:15.027792 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b
+[0m22:02:15.027221 [info ] [Thread-4  ]: 7 of 25 PASS not_null_dim_productos_sku ........................................ [[32mPASS[0m in 0.08s]
+[0m22:02:15.029420 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_sucursal
+from "sgfood_db"."analytics"."dim_sucursales"
+where id_sucursal is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.028985 [info ] [Thread-2  ]: 6 of 25 PASS not_null_dim_productos_precio_lista ............................... [[32mPASS[0m in 0.10s]
+[0m22:02:15.030331 [info ] [Thread-1  ]: 9 of 25 START test not_null_dim_sucursales_nombre_sucursal ..................... [RUN]
+[0m22:02:15.031264 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9
+[0m22:02:15.032544 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a
+[0m22:02:15.033162 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:15.033791 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_productos_nombre_producto.295892f2ae, now test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b)
+[0m22:02:15.034545 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe
+[0m22:02:15.035329 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f
+[0m22:02:15.037202 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8: ROLLBACK
+[0m22:02:15.037906 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b
+[0m22:02:15.038626 [info ] [Thread-4  ]: 10 of 25 START test not_null_fct_ventas_cantidad ............................... [RUN]
+[0m22:02:15.039255 [info ] [Thread-2  ]: 11 of 25 START test not_null_fct_ventas_fecha_venta ............................ [RUN]
+[0m22:02:15.040158 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8: Close
+[0m22:02:15.044820 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b"
+[0m22:02:15.045740 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_productos_sku.bd3890c9e9, now test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe)
+[0m22:02:15.046732 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_productos_precio_lista.0e2b3ef15a, now test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f)
+[0m22:02:15.047786 [info ] [Thread-3  ]: 8 of 25 PASS not_null_dim_sucursales_id_sucursal ............................... [[32mPASS[0m in 0.10s]
+[0m22:02:15.048713 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe
+[0m22:02:15.049306 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f
+[0m22:02:15.050189 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8
+[0m22:02:15.056500 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe"
+[0m22:02:15.060533 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f"
+[0m22:02:15.061341 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58
+[0m22:02:15.062758 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b
+[0m22:02:15.063399 [info ] [Thread-3  ]: 12 of 25 START test not_null_fct_ventas_id_cliente ............................. [RUN]
+[0m22:02:15.066574 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b"
+[0m22:02:15.067817 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_sucursales_id_sucursal.cdb76aa2f8, now test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58)
+[0m22:02:15.068935 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe
+[0m22:02:15.069516 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58
+[0m22:02:15.070093 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f
+[0m22:02:15.073258 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe"
+[0m22:02:15.078763 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58"
+[0m22:02:15.082149 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f"
+[0m22:02:15.083800 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b"
+[0m22:02:15.084859 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b: BEGIN
+[0m22:02:15.085586 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:15.087351 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe"
+[0m22:02:15.088414 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe: BEGIN
+[0m22:02:15.089196 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:15.090308 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f"
+[0m22:02:15.091152 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f: BEGIN
+[0m22:02:15.091968 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:15.094299 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58
+[0m22:02:15.095224 [debug] [Thread-1  ]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:15.098993 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58"
+[0m22:02:15.100312 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b"
+[0m22:02:15.101002 [debug] [Thread-2  ]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:15.101583 [debug] [Thread-4  ]: SQL status: BEGIN in 0.012 seconds
+[0m22:02:15.102901 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select nombre_sucursal
+from "sgfood_db"."analytics"."dim_sucursales"
+where nombre_sucursal is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.103739 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f"
+[0m22:02:15.104468 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe"
+[0m22:02:15.105513 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select fecha_venta
+from "sgfood_db"."analytics"."fct_ventas"
+where fecha_venta is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.106343 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select cantidad
+from "sgfood_db"."analytics"."fct_ventas"
+where cantidad is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.106958 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.109513 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b: ROLLBACK
+[0m22:02:15.110322 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.003 seconds
+[0m22:02:15.111140 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.004 seconds
+[0m22:02:15.111740 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b: Close
+[0m22:02:15.113305 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe: ROLLBACK
+[0m22:02:15.115345 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f: ROLLBACK
+[0m22:02:15.116023 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58"
+[0m22:02:15.116948 [info ] [Thread-1  ]: 9 of 25 PASS not_null_dim_sucursales_nombre_sucursal ........................... [[32mPASS[0m in 0.08s]
+[0m22:02:15.117683 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe: Close
+[0m22:02:15.118449 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f: Close
+[0m22:02:15.119016 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58: BEGIN
+[0m22:02:15.120079 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b
+[0m22:02:15.121084 [info ] [Thread-4  ]: 10 of 25 PASS not_null_fct_ventas_cantidad ..................................... [[32mPASS[0m in 0.08s]
+[0m22:02:15.122332 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:15.121938 [info ] [Thread-2  ]: 11 of 25 PASS not_null_fct_ventas_fecha_venta .................................. [[32mPASS[0m in 0.08s]
+[0m22:02:15.123294 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd
+[0m22:02:15.124224 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe
+[0m22:02:15.126082 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f
+[0m22:02:15.127492 [info ] [Thread-1  ]: 13 of 25 START test not_null_fct_ventas_id_detalle ............................. [RUN]
+[0m22:02:15.128513 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783
+[0m22:02:15.129416 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c
+[0m22:02:15.130280 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_dim_sucursales_nombre_sucursal.570632503b, now test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd)
+[0m22:02:15.131082 [info ] [Thread-4  ]: 14 of 25 START test not_null_fct_ventas_id_producto ............................ [RUN]
+[0m22:02:15.131773 [info ] [Thread-2  ]: 15 of 25 START test not_null_fct_ventas_id_sucursal ............................ [RUN]
+[0m22:02:15.132727 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd
+[0m22:02:15.133285 [debug] [Thread-3  ]: SQL status: BEGIN in 0.011 seconds
+[0m22:02:15.133906 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_cantidad.b50d370abe, now test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783)
+[0m22:02:15.134629 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_fecha_venta.34e77c4d6f, now test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c)
+[0m22:02:15.143571 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd"
+[0m22:02:15.144352 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58"
+[0m22:02:15.145310 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783
+[0m22:02:15.146025 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c
+[0m22:02:15.147096 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_cliente
+from "sgfood_db"."analytics"."fct_ventas"
+where id_cliente is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.151870 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783"
+[0m22:02:15.156901 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c"
+[0m22:02:15.158669 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd
+[0m22:02:15.159364 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.162467 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd"
+[0m22:02:15.164622 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58: ROLLBACK
+[0m22:02:15.165834 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783
+[0m22:02:15.169810 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783"
+[0m22:02:15.170708 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58: Close
+[0m22:02:15.171408 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c
+[0m22:02:15.176333 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c"
+[0m22:02:15.172955 [info ] [Thread-3  ]: 12 of 25 PASS not_null_fct_ventas_id_cliente ................................... [[32mPASS[0m in 0.11s]
+[0m22:02:15.178080 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58
+[0m22:02:15.178713 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd"
+[0m22:02:15.179564 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2
+[0m22:02:15.180436 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783"
+[0m22:02:15.181137 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd: BEGIN
+[0m22:02:15.182029 [info ] [Thread-3  ]: 16 of 25 START test not_null_fct_ventas_id_venta ............................... [RUN]
+[0m22:02:15.182727 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783: BEGIN
+[0m22:02:15.183360 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c"
+[0m22:02:15.183978 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:15.185067 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_id_cliente.4d6b28bc58, now test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2)
+[0m22:02:15.185851 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:15.186736 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c: BEGIN
+[0m22:02:15.188201 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2
+[0m22:02:15.190417 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:15.196118 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2"
+[0m22:02:15.197840 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:15.198489 [debug] [Thread-4  ]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:15.199154 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd"
+[0m22:02:15.200044 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783"
+[0m22:02:15.200901 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_detalle
+from "sgfood_db"."analytics"."fct_ventas"
+where id_detalle is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.201684 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_producto
+from "sgfood_db"."analytics"."fct_ventas"
+where id_producto is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.203747 [debug] [Thread-2  ]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:15.204365 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.204909 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.205448 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c"
+[0m22:02:15.207394 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd: ROLLBACK
+[0m22:02:15.209402 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783: ROLLBACK
+[0m22:02:15.209987 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2
+[0m22:02:15.210497 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_sucursal
+from "sgfood_db"."analytics"."fct_ventas"
+where id_sucursal is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.211539 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd: Close
+[0m22:02:15.212209 [debug] [Thread-4  ]: On test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783: Close
+[0m22:02:15.215395 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2"
+[0m22:02:15.216867 [info ] [Thread-1  ]: 13 of 25 PASS not_null_fct_ventas_id_detalle ................................... [[32mPASS[0m in 0.09s]
+[0m22:02:15.217694 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.001 seconds
+[0m22:02:15.218514 [info ] [Thread-4  ]: 14 of 25 PASS not_null_fct_ventas_id_producto .................................. [[32mPASS[0m in 0.08s]
+[0m22:02:15.220689 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd
+[0m22:02:15.222581 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c: ROLLBACK
+[0m22:02:15.223448 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783
+[0m22:02:15.224337 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab
+[0m22:02:15.225434 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761
+[0m22:02:15.225956 [debug] [Thread-2  ]: On test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c: Close
+[0m22:02:15.226775 [info ] [Thread-1  ]: 17 of 25 START test not_null_fct_ventas_monto_neto ............................. [RUN]
+[0m22:02:15.227738 [info ] [Thread-4  ]: 18 of 25 START test relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_  [RUN]
+[0m22:02:15.229490 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_id_detalle.eb646d95cd, now test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab)
+[0m22:02:15.228979 [info ] [Thread-2  ]: 15 of 25 PASS not_null_fct_ventas_id_sucursal .................................. [[32mPASS[0m in 0.09s]
+[0m22:02:15.230259 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2"
+[0m22:02:15.230893 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_id_producto.fb24f70783, now test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761)
+[0m22:02:15.231683 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab
+[0m22:02:15.232588 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c
+[0m22:02:15.233320 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2: BEGIN
+[0m22:02:15.234002 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761
+[0m22:02:15.241228 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab"
+[0m22:02:15.241855 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73
+[0m22:02:15.242696 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:15.250515 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761"
+[0m22:02:15.251351 [info ] [Thread-2  ]: 19 of 25 START test relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_  [RUN]
+[0m22:02:15.252903 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_id_sucursal.3b560add4c, now test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73)
+[0m22:02:15.253556 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73
+[0m22:02:15.259901 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73"
+[0m22:02:15.261177 [debug] [Thread-3  ]: SQL status: BEGIN in 0.018 seconds
+[0m22:02:15.261939 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2"
+[0m22:02:15.262437 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab
+[0m22:02:15.262964 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761
+[0m22:02:15.263512 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select id_venta
+from "sgfood_db"."analytics"."fct_ventas"
+where id_venta is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.266904 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab"
+[0m22:02:15.270485 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761"
+[0m22:02:15.271256 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73
+[0m22:02:15.275550 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73"
+[0m22:02:15.276451 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.005 seconds
+[0m22:02:15.278847 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2: ROLLBACK
+[0m22:02:15.279891 [debug] [Thread-3  ]: On test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2: Close
+[0m22:02:15.281038 [info ] [Thread-3  ]: 16 of 25 PASS not_null_fct_ventas_id_venta ..................................... [[32mPASS[0m in 0.10s]
+[0m22:02:15.282193 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2
+[0m22:02:15.282783 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761"
+[0m22:02:15.283399 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab"
+[0m22:02:15.284161 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3
+[0m22:02:15.285146 [debug] [Thread-4  ]: On test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761: BEGIN
+[0m22:02:15.286043 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab: BEGIN
+[0m22:02:15.286863 [info ] [Thread-3  ]: 20 of 25 START test relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_  [RUN]
+[0m22:02:15.287495 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73"
+[0m22:02:15.288416 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:15.289218 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:15.290152 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_id_venta.80cb7222e2, now test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3)
+[0m22:02:15.290895 [debug] [Thread-2  ]: On test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73: BEGIN
+[0m22:02:15.292662 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3
+[0m22:02:15.293428 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:15.300872 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3"
+[0m22:02:15.302262 [debug] [Thread-1  ]: SQL status: BEGIN in 0.013 seconds
+[0m22:02:15.302915 [debug] [Thread-4  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:15.303757 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab"
+[0m22:02:15.304531 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761"
+[0m22:02:15.305386 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select monto_neto
+from "sgfood_db"."analytics"."fct_ventas"
+where monto_neto is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.306111 [debug] [Thread-4  ]: On test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select id_cliente as from_field
+    from "sgfood_db"."analytics"."fct_ventas"
+    where id_cliente is not null
+),
+
+parent as (
+    select id_cliente as to_field
+    from "sgfood_db"."analytics"."dim_clientes"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.308416 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.308928 [debug] [Thread-2  ]: SQL status: BEGIN in 0.016 seconds
+[0m22:02:15.309468 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.311503 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab: ROLLBACK
+[0m22:02:15.312315 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73"
+[0m22:02:15.314071 [debug] [Thread-4  ]: On test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761: ROLLBACK
+[0m22:02:15.315193 [debug] [Thread-1  ]: On test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab: Close
+[0m22:02:15.315835 [debug] [Thread-2  ]: On test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select id_producto as from_field
+    from "sgfood_db"."analytics"."fct_ventas"
+    where id_producto is not null
+),
+
+parent as (
+    select id_producto as to_field
+    from "sgfood_db"."analytics"."dim_productos"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.316500 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3
+[0m22:02:15.317238 [debug] [Thread-4  ]: On test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761: Close
+[0m22:02:15.318202 [info ] [Thread-1  ]: 17 of 25 PASS not_null_fct_ventas_monto_neto ................................... [[32mPASS[0m in 0.09s]
+[0m22:02:15.323270 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3"
+[0m22:02:15.324032 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.005 seconds
+[0m22:02:15.324998 [info ] [Thread-4  ]: 18 of 25 PASS relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_  [[32mPASS[0m in 0.09s]
+[0m22:02:15.327644 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab
+[0m22:02:15.329881 [debug] [Thread-2  ]: On test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73: ROLLBACK
+[0m22:02:15.330741 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761
+[0m22:02:15.331467 [debug] [Thread-1  ]: Began running node test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db
+[0m22:02:15.332549 [debug] [Thread-4  ]: Began running node test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88
+[0m22:02:15.332992 [debug] [Thread-2  ]: On test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73: Close
+[0m22:02:15.333843 [info ] [Thread-1  ]: 21 of 25 START test unique_dim_clientes_id_cliente ............................. [RUN]
+[0m22:02:15.334663 [info ] [Thread-4  ]: 22 of 25 START test unique_dim_productos_id_producto ........................... [RUN]
+[0m22:02:15.336655 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.not_null_fct_ventas_monto_neto.4ee10acdab, now test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db)
+[0m22:02:15.335976 [info ] [Thread-2  ]: 19 of 25 PASS relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_  [[32mPASS[0m in 0.08s]
+[0m22:02:15.337964 [debug] [Thread-4  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.relationships_fct_ventas_id_cliente__id_cliente__ref_dim_clientes_.fe9faf9761, now test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88)
+[0m22:02:15.338899 [debug] [Thread-1  ]: Began compiling node test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db
+[0m22:02:15.340220 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73
+[0m22:02:15.340927 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3"
+[0m22:02:15.341808 [debug] [Thread-4  ]: Began compiling node test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88
+[0m22:02:15.350429 [debug] [Thread-1  ]: Writing injected SQL for node "test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db"
+[0m22:02:15.351130 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b
+[0m22:02:15.351999 [debug] [Thread-3  ]: On test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3: BEGIN
+[0m22:02:15.356204 [debug] [Thread-4  ]: Writing injected SQL for node "test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88"
+[0m22:02:15.357258 [info ] [Thread-2  ]: 23 of 25 START test unique_dim_productos_sku ................................... [RUN]
+[0m22:02:15.358043 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:15.359132 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.relationships_fct_ventas_id_producto__id_producto__ref_dim_productos_.77b2c29b73, now test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b)
+[0m22:02:15.360252 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b
+[0m22:02:15.365136 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b"
+[0m22:02:15.367082 [debug] [Thread-3  ]: SQL status: BEGIN in 0.009 seconds
+[0m22:02:15.367844 [debug] [Thread-4  ]: Began executing node test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88
+[0m22:02:15.368465 [debug] [Thread-1  ]: Began executing node test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db
+[0m22:02:15.369079 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3"
+[0m22:02:15.372537 [debug] [Thread-4  ]: Writing runtime sql for node "test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88"
+[0m22:02:15.376242 [debug] [Thread-1  ]: Writing runtime sql for node "test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db"
+[0m22:02:15.376963 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b
+[0m22:02:15.377582 [debug] [Thread-3  ]: On test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select id_sucursal as from_field
+    from "sgfood_db"."analytics"."fct_ventas"
+    where id_sucursal is not null
+),
+
+parent as (
+    select id_sucursal as to_field
+    from "sgfood_db"."analytics"."dim_sucursales"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.381772 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b"
+[0m22:02:15.384970 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.386906 [debug] [Thread-3  ]: On test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3: ROLLBACK
+[0m22:02:15.387908 [debug] [Thread-3  ]: On test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3: Close
+[0m22:02:15.388921 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88"
+[0m22:02:15.389473 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db"
+[0m22:02:15.390923 [debug] [Thread-4  ]: On test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88: BEGIN
+[0m22:02:15.390450 [info ] [Thread-3  ]: 20 of 25 PASS relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_  [[32mPASS[0m in 0.10s]
+[0m22:02:15.392267 [debug] [Thread-1  ]: On test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db: BEGIN
+[0m22:02:15.393033 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+[0m22:02:15.393677 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b"
+[0m22:02:15.394516 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3
+[0m22:02:15.395321 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m22:02:15.396575 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b: BEGIN
+[0m22:02:15.397419 [debug] [Thread-3  ]: Began running node test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575
+[0m22:02:15.398630 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:15.399488 [info ] [Thread-3  ]: 24 of 25 START test unique_dim_sucursales_id_sucursal .......................... [RUN]
+[0m22:02:15.400819 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.relationships_fct_ventas_id_sucursal__id_sucursal__ref_dim_sucursales_.91978fe7f3, now test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575)
+[0m22:02:15.401565 [debug] [Thread-3  ]: Began compiling node test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575
+[0m22:02:15.407020 [debug] [Thread-3  ]: Writing injected SQL for node "test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575"
+[0m22:02:15.408796 [debug] [Thread-2  ]: SQL status: BEGIN in 0.010 seconds
+[0m22:02:15.409346 [debug] [Thread-4  ]: SQL status: BEGIN in 0.016 seconds
+[0m22:02:15.409890 [debug] [Thread-1  ]: SQL status: BEGIN in 0.015 seconds
+[0m22:02:15.410385 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b"
+[0m22:02:15.411159 [debug] [Thread-4  ]: Using postgres connection "test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88"
+[0m22:02:15.412078 [debug] [Thread-1  ]: Using postgres connection "test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db"
+[0m22:02:15.412789 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    sku as unique_field,
+    count(*) as n_records
+
+from "sgfood_db"."analytics"."dim_productos"
+where sku is not null
+group by sku
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.413514 [debug] [Thread-4  ]: On test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id_producto as unique_field,
+    count(*) as n_records
+
+from "sgfood_db"."analytics"."dim_productos"
+where id_producto is not null
+group by id_producto
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.414254 [debug] [Thread-1  ]: On test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id_cliente as unique_field,
+    count(*) as n_records
+
+from "sgfood_db"."analytics"."dim_clientes"
+where id_cliente is not null
+group by id_cliente
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.416537 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.417370 [debug] [Thread-3  ]: Began executing node test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575
+[0m22:02:15.417981 [debug] [Thread-1  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.422223 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b: ROLLBACK
+[0m22:02:15.422921 [debug] [Thread-4  ]: SQL status: SELECT 1 in 0.008 seconds
+[0m22:02:15.426767 [debug] [Thread-3  ]: Writing runtime sql for node "test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575"
+[0m22:02:15.429061 [debug] [Thread-1  ]: On test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db: ROLLBACK
+[0m22:02:15.431402 [debug] [Thread-4  ]: On test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88: ROLLBACK
+[0m22:02:15.431976 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b: Close
+[0m22:02:15.433474 [debug] [Thread-1  ]: On test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db: Close
+[0m22:02:15.434058 [debug] [Thread-4  ]: On test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88: Close
+[0m22:02:15.434932 [info ] [Thread-2  ]: 23 of 25 PASS unique_dim_productos_sku ......................................... [[32mPASS[0m in 0.08s]
+[0m22:02:15.435920 [info ] [Thread-1  ]: 21 of 25 PASS unique_dim_clientes_id_cliente ................................... [[32mPASS[0m in 0.10s]
+[0m22:02:15.437668 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b
+[0m22:02:15.436944 [info ] [Thread-4  ]: 22 of 25 PASS unique_dim_productos_id_producto ................................. [[32mPASS[0m in 0.10s]
+[0m22:02:15.438809 [debug] [Thread-1  ]: Finished running node test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db
+[0m22:02:15.439816 [debug] [Thread-2  ]: Began running node test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25
+[0m22:02:15.440966 [debug] [Thread-4  ]: Finished running node test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88
+[0m22:02:15.442286 [info ] [Thread-2  ]: 25 of 25 START test unique_fct_ventas_id_detalle ............................... [RUN]
+[0m22:02:15.443073 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575"
+[0m22:02:15.444271 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.sgfood_dbt.unique_dim_productos_sku.02bb5d826b, now test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25)
+[0m22:02:15.445018 [debug] [Thread-3  ]: On test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575: BEGIN
+[0m22:02:15.445748 [debug] [Thread-2  ]: Began compiling node test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25
+[0m22:02:15.446430 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m22:02:15.452343 [debug] [Thread-2  ]: Writing injected SQL for node "test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25"
+[0m22:02:15.460051 [debug] [Thread-3  ]: SQL status: BEGIN in 0.014 seconds
+[0m22:02:15.460964 [debug] [Thread-3  ]: Using postgres connection "test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575"
+[0m22:02:15.461757 [debug] [Thread-3  ]: On test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id_sucursal as unique_field,
+    count(*) as n_records
+
+from "sgfood_db"."analytics"."dim_sucursales"
+where id_sucursal is not null
+group by id_sucursal
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.463550 [debug] [Thread-2  ]: Began executing node test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25
+[0m22:02:15.464204 [debug] [Thread-3  ]: SQL status: SELECT 1 in 0.002 seconds
+[0m22:02:15.467276 [debug] [Thread-2  ]: Writing runtime sql for node "test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25"
+[0m22:02:15.469331 [debug] [Thread-3  ]: On test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575: ROLLBACK
+[0m22:02:15.470709 [debug] [Thread-3  ]: On test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575: Close
+[0m22:02:15.471787 [info ] [Thread-3  ]: 24 of 25 PASS unique_dim_sucursales_id_sucursal ................................ [[32mPASS[0m in 0.07s]
+[0m22:02:15.472695 [debug] [Thread-3  ]: Finished running node test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575
+[0m22:02:15.478460 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25"
+[0m22:02:15.479164 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25: BEGIN
+[0m22:02:15.479835 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m22:02:15.487504 [debug] [Thread-2  ]: SQL status: BEGIN in 0.008 seconds
+[0m22:02:15.488581 [debug] [Thread-2  ]: Using postgres connection "test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25"
+[0m22:02:15.489373 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "sgfood_dbt", "target_name": "dev", "node_id": "test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id_detalle as unique_field,
+    count(*) as n_records
+
+from "sgfood_db"."analytics"."fct_ventas"
+where id_detalle is not null
+group by id_detalle
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m22:02:15.492830 [debug] [Thread-2  ]: SQL status: SELECT 1 in 0.003 seconds
+[0m22:02:15.494773 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25: ROLLBACK
+[0m22:02:15.495530 [debug] [Thread-2  ]: On test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25: Close
+[0m22:02:15.496497 [info ] [Thread-2  ]: 25 of 25 PASS unique_fct_ventas_id_detalle ..................................... [[32mPASS[0m in 0.05s]
+[0m22:02:15.497409 [debug] [Thread-2  ]: Finished running node test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25
+[0m22:02:15.500053 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:15.500740 [debug] [MainThread]: On master: BEGIN
+[0m22:02:15.501300 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:02:15.508125 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m22:02:15.508786 [debug] [MainThread]: On master: COMMIT
+[0m22:02:15.509305 [debug] [MainThread]: Using postgres connection "master"
+[0m22:02:15.509865 [debug] [MainThread]: On master: COMMIT
+[0m22:02:15.510576 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m22:02:15.511080 [debug] [MainThread]: On master: Close
+[0m22:02:15.511898 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:02:15.512435 [debug] [MainThread]: Connection 'test.sgfood_dbt.unique_dim_clientes_id_cliente.f86949c0db' was properly closed.
+[0m22:02:15.512890 [debug] [MainThread]: Connection 'test.sgfood_dbt.unique_fct_ventas_id_detalle.b8042bcd25' was properly closed.
+[0m22:02:15.513337 [debug] [MainThread]: Connection 'test.sgfood_dbt.unique_dim_sucursales_id_sucursal.0201714575' was properly closed.
+[0m22:02:15.513848 [debug] [MainThread]: Connection 'test.sgfood_dbt.unique_dim_productos_id_producto.e074502f88' was properly closed.
+[0m22:02:15.514637 [info ] [MainThread]: 
+[0m22:02:15.515313 [info ] [MainThread]: Finished running 25 data tests in 0 hours 0 minutes and 0.94 seconds (0.94s).
+[0m22:02:15.519945 [debug] [MainThread]: Command end result
+[0m22:02:15.582458 [info ] [MainThread]: 
+[0m22:02:15.583429 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:02:15.584096 [info ] [MainThread]: 
+[0m22:02:15.584718 [info ] [MainThread]: Done. PASS=25 WARN=0 ERROR=0 SKIP=0 TOTAL=25
+[0m22:02:15.586431 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 2.0506978, "process_user_time": 3.12214, "process_kernel_time": 0.454056, "process_mem_max_rss": "110964", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m22:02:15.587209 [debug] [MainThread]: Command `python -m dbt.cli.main test` succeeded at 22:02:15.587093 after 2.05 seconds
+[0m22:02:15.587869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c404a90aeb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c404b4190d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c4049a17880>]}
+[0m22:02:15.588548 [debug] [MainThread]: Flushing usage events
+[0m22:02:15.871913 [debug] [MainThread]: An error was encountered while trying to flush usage events
