@@ -34,14 +34,14 @@ ORDER BY ordinal_position;
 -- consola (36.26M rows / 6.97 GB) como evidencia equivalente.
 -- ----------------------------------------------------------------------------
 SELECT
-  table_name,
-  row_count                                AS filas,
-  size_bytes                               AS bytes_logicos,
-  ROUND(size_bytes / POW(1024, 3), 2)      AS gb_logicos,
-  creation_time,
-  last_modified_time
-FROM `bigquery-public-data.new_york_taxi_trips.INFORMATION_SCHEMA.TABLES`
-WHERE table_name = 'tlc_yellow_trips_2022';
+  table_id,
+  row_count                            AS filas,
+  size_bytes                           AS bytes_logicos,
+  ROUND(size_bytes / POW(1024, 3), 2)  AS gb_logicos,
+  TIMESTAMP_MILLIS(creation_time)      AS creation_time,
+  TIMESTAMP_MILLIS(last_modified_time) AS last_modified_time
+FROM `bigquery-public-data.new_york_taxi_trips.__TABLES__`
+WHERE table_id = 'tlc_yellow_trips_2022';
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 3 (opcional): muestra de filas aplicando column pruning.

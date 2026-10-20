@@ -85,9 +85,9 @@ ORDER BY table_name, option_name;
 -- Si opt pesara mucho menos que std, algo se filtró por error en el CREATE.
 -- ----------------------------------------------------------------------------
 SELECT
-  table_name,
+  table_id,
   row_count                           AS filas,
   ROUND(size_bytes / POW(1024, 3), 2) AS gb_logicos
-FROM `ss2-2026-pareja14.taxi_ss2_2026.INFORMATION_SCHEMA.TABLES`
-WHERE table_name IN ('fact_trips_std', 'fact_trips_opt')
-ORDER BY table_name;
+FROM `ss2-2026-pareja14.taxi_ss2_2026.__TABLES__`
+WHERE table_id IN ('fact_trips_std', 'fact_trips_opt')
+ORDER BY table_id;

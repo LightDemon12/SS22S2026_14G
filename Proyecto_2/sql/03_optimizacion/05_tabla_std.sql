@@ -44,9 +44,9 @@ ORDER BY option_name;
 -- Anotar estos números en la tabla comparativa del README: son el "antes".
 -- ----------------------------------------------------------------------------
 SELECT
-  table_name,
+  table_id,
   row_count                           AS filas,
   size_bytes                          AS bytes_logicos,
   ROUND(size_bytes / POW(1024, 3), 2) AS gb_logicos
-FROM `ss2-2026-pareja14.taxi_ss2_2026.INFORMATION_SCHEMA.TABLES`
-WHERE table_name = 'fact_trips_std';
+FROM `ss2-2026-pareja14.taxi_ss2_2026.__TABLES__`
+WHERE table_id = 'fact_trips_std';

@@ -189,8 +189,8 @@ DROP TABLE IF EXISTS `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`;
 -- Capturar como evidencia_07_storage_final.png.
 -- ----------------------------------------------------------------------------
 SELECT
-  table_name,
+  table_id,
   row_count                           AS filas,
   ROUND(size_bytes / POW(1024, 3), 2) AS gb_logicos
-FROM `ss2-2026-pareja14.taxi_ss2_2026.INFORMATION_SCHEMA.TABLES`
+FROM `ss2-2026-pareja14.taxi_ss2_2026.__TABLES__`
 ORDER BY size_bytes DESC;

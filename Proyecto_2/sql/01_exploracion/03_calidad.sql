@@ -91,10 +91,32 @@ GROUP BY 1
 ORDER BY viajes DESC;
 
 -- ----------------------------------------------------------------------------
--- INTERPRETACIÓN PARA EL README (llenar con los números obtenidos):
--- Regla L1: se excluyen viajes con dropoff <= pickup (N registros).
--- Regla L2: se excluyen distancias <= 0 o > 100 mi (N registros).
--- Regla L3: se excluyen tarifas fuera de [2.5, 500] (N registros).
--- Regla L4: modelo de regresión solo con rate_code = 1.
--- Regla L5: modelo de clasificación solo con payment_type = 1.
+-- INTERPRETACIÓN PARA EL README (con números obtenidos el 2026-10-20):
+-- Regla L1: se excluyen viajes con dropoff <= pickup o duración fuera de
+--           1-240 min: 74,761 registros (30,360 de duración no positiva +
+--           44,401 de más de 4 horas).
+-- Regla L2: se excluyen distancias <= 0 o > 100 mi: 512,826 registros
+--           (511,442 + 1,384). Es el 1.41% de la tabla.
+-- Regla L3: se excluyen pasajeros <= 0 o NULL: 1,344,959 registros (3.71%),
+--           el defecto individual más frecuente del dataset.
+-- Regla L4: se excluyen tarifas fuera de [2.5, 500] o totales fuera de
+--           [2.5, 1000]: 476,836 registros (246,228 + 2,235 + 228,292 + 81).
+-- Regla L5: se excluyen códigos fuera del catálogo TLC: 1,363,232 registros
+--           (1,241,840 con rate_code NULL y payment_type = 0 simultáneamente,
+--           que forman un bloque de captura incompleta con distancia promedio
+--           de 78.58 mi; más 121,392 con rate_code = 99).
+-- Regla L6: se excluyen propinas negativas (ajustes o anulaciones):
+--           3,135 registros.
+-- Nota metodológica: las reglas se solapan (un registro puede violar varias),
+-- por lo que la suma de excluidos es mayor que el descarte final. La cifra
+-- exacta de retención se reporta en 04_metricas.sql bloque 2a (pct_conservado).
+-- Regla M1: el modelo de regresión se entrena solo con rate_code = 1
+--           (91.3% de los viajes, tarifa de medidor, promedio 12.24 USD y
+--           2.82 mi), porque las tarifas planas (código 2: 50.65 USD y
+--           17.31 mi en promedio) no dependen del taxímetro.
+-- Regla M2: el modelo de clasificación se entrena solo con payment_type = 1
+--           (75.94% de los viajes, 96.03% con propina), porque en efectivo
+--           (19.59% de los viajes) el sistema TLC no captura la propina:
+--           pct_con_propina = 0.02% y propina promedio 0.001 USD. Incluir
+--           efectivo crearía una etiqueta degenerada.
 -- ----------------------------------------------------------------------------
