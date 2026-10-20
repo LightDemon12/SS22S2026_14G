@@ -15,7 +15,8 @@
 -- Evidencias: evidencia_04_creacion_std.png (bloque 1),
 --             evidencia_04_retencion.png y evidencia_04_casts.png (bloque 2),
 --             evidencia_04_metricas_globales.png (bloque 3),
---             evidencia_04_agregados.png (bloque 6).
+--             evidencia_04_agregados.png (bloque 6),
+--             evidencia_04_perfil_horario.png y evidencia_04_top_zonas.png (bloque 7).
 -- ============================================================================
 
 
@@ -25,22 +26,40 @@
 -- Reglas de limpieza aplicadas (justificación en README, sección 2):
 --   L1 duracion 1-240 min y dropoff > pickup : errores de captura del reloj.
 --   L2 distancia 0.1-100 mi                  : viajes sin GPS o implausibles.
---   L3 pasajeros 1-9                         : 0 o NULL es registro inválido.
+--   L3 pasajeros 1-9                         : 0 o NULL es registro inválido
+--                                              (1,344,959 casos, 3.71%).
 --   L4 tarifa [2.5, 500] y total [2.5, 1000] : mínimo legal NYC es 2.5 USD.
---   L5 total >= tarifa                       : el total nunca puede ser
---                                              menor que la tarifa de medidor.
---   L6 zonas 1-265 y códigos legibles        : IDs fuera del catálogo TLC.
+--   L5 total >= tarifa y propina >= 0        : el total nunca puede ser menor
+--                                              que la tarifa de medidor; la
+--                                              propina negativa es un ajuste
+--                                              o anulación (3,135 casos).
+--   L6 zonas 1-265 y códigos rate/payment 1-6: fuera del catálogo TLC
+--                                              (1,241,840 registros con
+--                                              rate_code NULL y payment_type 0
+--                                              simultáneos, más 121,392 con
+--                                              rate_code 99).
+--   L7 año temporal 2022 (agregada en re-ejecución): se detectaron registros
+--      con fecha imposible (mínimo 2001-01-01) por relojes descalibrados;
+--      contaminan el split TRAIN, el perfil horario y romperían la serie
+--      diaria del forecast. La cobertura real del dataset público termina
+--      el 2022-12-01, no el 31 (ver bloque 2b).
 --
 -- Transformaciones de tipo (crítico, ver evidencia_01_schema):
 --   rate_code / payment_type / vendor_id son STRING con formato '1.0',
 --   por lo que se aplica doble cast SAFE_CAST(STRING -> FLOAT64 -> INT64).
 --   Los montos NUMERIC se convierten a FLOAT64 para BigQuery ML y Looker.
+--   pickup/dropoff_location_id son STRING en el origen y se normalizan a
+--   INT64 para que la clave de unión coincida con dim_zones (bloque 4).
 --
 -- Columnas eliminadas y por qué (ahorro de almacenamiento en sandbox):
 --   store_and_fwd_flag      : solo útil para auditoría; ya medida en 03_calidad.
 --   mta_tax                 : constante 0.5 USD, varianza cero, no informa.
 --   improvement_surcharge   : constante 0.3 USD, varianza cero, no informa.
 --   airport_fee             : reconstruible con la bandera is_airport_pickup.
+--   congestion_surcharge    : NO EXISTE en esta versión pública de la tabla
+--                             (error verificado en consola); su efecto se
+--                             aproxima con is_rush_am/pm, is_hot_zone y
+--                             pickup_borough en la fase de features.
 --
 -- Se conservan TODOS los rate_code y payment_type válidos: los filtros por
 -- modelo (rate_code = 1, payment_type = 1) se aplican después, no aquí.
@@ -61,8 +80,7 @@ SELECT
   CAST(extra AS FLOAT64)                                        AS extra,
   CAST(tip_amount AS FLOAT64)                                   AS tip_amount,
   CAST(tolls_amount AS FLOAT64)                                 AS tolls_amount,
-  CAST(congestion_surcharge AS FLOAT64)                         AS congestion_surcharge,
-  CAST(total_amount AS FLOAT64)                                AS total_amount,
+  CAST(total_amount AS FLOAT64)                                 AS total_amount,
   SAFE_CAST(SAFE_CAST(pickup_location_id AS FLOAT64) AS INT64)  AS pickup_location_id,
   SAFE_CAST(SAFE_CAST(dropoff_location_id AS FLOAT64) AS INT64) AS dropoff_location_id,
   TIMESTAMP_DIFF(dropoff_datetime, pickup_datetime, MINUTE)     AS trip_duration_minutes,
@@ -78,10 +96,12 @@ WHERE pickup_datetime IS NOT NULL
   AND fare_amount  BETWEEN 2.5 AND 500
   AND total_amount BETWEEN 2.5 AND 1000
   AND total_amount >= fare_amount
+  AND tip_amount >= 0
   AND SAFE_CAST(SAFE_CAST(pickup_location_id AS FLOAT64) AS INT64)  BETWEEN 1 AND 265
   AND SAFE_CAST(SAFE_CAST(dropoff_location_id AS FLOAT64) AS INT64) BETWEEN 1 AND 265
-  AND SAFE_CAST(SAFE_CAST(rate_code AS FLOAT64) AS INT64)    IS NOT NULL
-  AND SAFE_CAST(SAFE_CAST(payment_type AS FLOAT64) AS INT64) BETWEEN 1 AND 6;
+  AND SAFE_CAST(SAFE_CAST(rate_code AS FLOAT64) AS INT64)    BETWEEN 1 AND 6
+  AND SAFE_CAST(SAFE_CAST(payment_type AS FLOAT64) AS INT64) BETWEEN 1 AND 6
+  AND EXTRACT(YEAR FROM pickup_datetime) = 2022;
 
 
 -- ----------------------------------------------------------------------------
@@ -145,11 +165,11 @@ FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`;
 -- geográfico y para el dashboard.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.dim_zones`
-OPTIONS(description='Dimensión de zonas de taxi TLC: id, nombre y borough')
+OPTIONS(description='Dimensión de zonas de taxi TLC: id entero, nombre y borough')
 AS
 SELECT
-  zone_id   AS location_id,
-  zone_name AS zone,
+  SAFE_CAST(zone_id AS INT64) AS location_id,
+  zone_name                   AS zone,
   borough
 FROM `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom`;
 
@@ -191,7 +211,7 @@ SELECT
 FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
 GROUP BY 1, 2, 3;
 
--- ----------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------- 
 -- BLOQUE 5c: AGREGADO POR ZONA con ranking mediante función de ventana.
 -- Demuestra WINDOW FUNCTIONS sobre agregados (criterio 1.2).
 -- ----------------------------------------------------------------------------
@@ -287,14 +307,62 @@ SELECT
 
 
 -- ----------------------------------------------------------------------------
--- NOTAS DE INTERPRETACIÓN PARA EL README (llenar con los números reales):
--- H-temporal  : la demanda concentra picos en las horas __ y __; la velocidad
---               promedio cae de __ mph a __ mph en esos bloques (congestión).
--- H-geográfico: las zonas __ y __ (borough __) concentran el __% de los
---               orígenes (ver rank_origen en agg_zones).
--- H-económico : el método __ registra pct_con_propina = 0.00, confirmando
---               que la propina en efectivo no se captura en el sistema TLC.
--- H-categórico: el __% de los viajes usa rate_code 1 (tarifa de medidor).
--- H-calidad   : se conservó el __% de los registros públicos (bloque 2a).
--- SIGUIENTE PASO: sql/03_optimizacion/05_tabla_opt.sql
+-- BLOQUE 7a: ANÁLISIS DE PERFIL HORARIO Y CONGESTIÓN.
+-- < 0.05 GB. Identifica picos/valles de demanda y la velocidad promedio
+-- ponderada para exponer el impacto del tráfico.
+-- Capturar como evidencia_04_perfil_horario.png.
+-- ----------------------------------------------------------------------------
+SELECT
+  pickup_hour,
+  SUM(n_viajes)                                           AS viajes,
+  ROUND(SUM(n_viajes * velocidad_mph) / SUM(n_viajes), 2) AS velocidad_mph_ponderada
+FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_hourly_profile`
+GROUP BY pickup_hour
+ORDER BY viajes DESC;
+
+-- ----------------------------------------------------------------------------
+-- BLOQUE 7b: TOP 5 ZONAS DE ORIGEN Y PARTICIPACIÓN.
+-- < 0.05 GB. Extrae los principales orígenes y calcula su contribución
+-- porcentual mediante funciones de ventana sobre el ranking precalculado.
+-- Capturar como evidencia_04_top_zonas.png.
+-- ----------------------------------------------------------------------------
+SELECT
+  zone, borough, viajes_origen,
+  ROUND(100 * viajes_origen / SUM(viajes_origen) OVER (), 2) AS pct_origenes
+FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_zones`
+ORDER BY rank_origen
+LIMIT 5;
+
+
+-- ----------------------------------------------------------------------------
+-- NOTAS DE INTERPRETACIÓN PARA EL README (números reales, re-ejecución con
+-- regla L7, 2026-10-20):
+-- H-temporal  : la demanda concentra su pico a las 18:00 (2,384,953 viajes) y
+--               su valle a las 04:00 (163,758 viajes): una razón de 14.6x.
+--               La velocidad ponderada cae de 20.83 mph en el valle a 11.52 mph
+--               en el pico; el peor tramo de congestión es 15:00-16:00
+--               (10.88 mph), es decir, ANTES del pico de demanda, y la máxima
+--               fluidez ocurre a las 05:00 con 22.66 mph.
+--               Promedio global del sistema: 12.79 mph.
+-- H-geográfico: JFK Airport (Queens) es el primer origen del sistema con
+--               1,621,833 viajes (4.86%), seguido de Upper East Side South
+--               (Manhattan) con 1,607,420 (4.82%); el top 5 concentra 21.40%
+--               de los orígenes y 4 de sus 5 zonas son de Manhattan
+--               (agg_zones, 263 zonas vigentes).
+-- H-económico : el método Efectivo registra pct_con_propina = 0.02% (propina
+--               promedio 0.001 USD) frente a 96.03% en tarjeta: la propina en
+--               efectivo no se captura en el sistema TLC. Tarifa promedio
+--               14.31 USD (p50 = 10.0, p90 = 29.0, p99 = 52.0), total promedio
+--               21.13 USD, tip_ratio promedio 0.2089.
+-- H-físico    : distancia mediana 1.9 mi y p95 15.25 mi; duración p95 de
+--               39 min; 1.43 pasajeros por viaje en promedio.
+-- H-categórico: el 91.3% de los viajes públicos usa rate_code 1 (tarifa de
+--               medidor: 12.24 USD y 2.82 mi en promedio); tras la limpieza
+--               quedan 6 códigos de tarifa y 5 métodos de pago distintos.
+-- H-calidad   : se conservó el 92.06% de los registros públicos (33,377,653 de
+--               36,256,539; 2,878,886 descartados por las reglas L1-L7).
+-- H-cobertura : la ventana real del dataset es 2022-01-01 a 2022-12-01; la
+--               regla L7 eliminó fechas imposibles (mínimo previo 2001-01-01)
+--               y la serie diaria útil quedó en 335 días (agg_daily).
+-- SIGUIENTE PASO: sql/03_optimizacion/05_tabla_std.sql
 -- ----------------------------------------------------------------------------
