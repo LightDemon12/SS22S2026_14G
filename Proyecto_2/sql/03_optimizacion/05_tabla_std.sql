@@ -6,7 +6,7 @@
 --             tablas: la tabla fact_trips_std fue materializada en
 --             sql/02_transformaciones/04_metricas.sql (bloque 1). Recrearla
 --             aquí duplicaría el almacenamiento (límite sandbox: 10 GB).
--- Costo     : 0 bytes en todos los bloques (INFORMATION_SCHEMA = metadatos).
+-- Costo     : Costo: ~10 MB por bloque de INFORMATION_SCHEMA; 0 B en __TABLES__.
 -- Evidencias: evidencia_05_std_sin_particiones.png (bloque 1),
 --             evidencia_05_std_opciones.png (bloque 2),
 --             evidencia_05_std_tamano.png (bloque 3).
@@ -23,19 +23,20 @@ SELECT
   COUNT(*)            AS n_particiones,
   MIN(partition_id)   AS primera_particion,
   MAX(partition_id)   AS ultima_particion
-FROM `ss2-2026-pareja14.taxi_ss2_2026.INFORMATION_SCHEMA.PARTITIONS`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.INFORMATION_SCHEMA.PARTITIONS`
 WHERE table_name = 'fact_trips_std';
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 2: Opciones físicas declaradas en la tabla estándar.
 -- Resultado esperado: únicamente la opción 'description'. La ausencia de
 -- opciones de partición/clustering confirma que es una tabla plana.
--- ----------------------------------------------------------------------------
+-- -- Nota: en sandbox también aparece expiration_timestamp
+----------------------------------------------------------------------------
 SELECT
   table_name,
   option_name,
   option_value
-FROM `ss2-2026-pareja14.taxi_ss2_2026.INFORMATION_SCHEMA.TABLE_OPTIONS`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.INFORMATION_SCHEMA.TABLE_OPTIONS`
 WHERE table_name = 'fact_trips_std'
 ORDER BY option_name;
 
@@ -48,5 +49,5 @@ SELECT
   row_count                           AS filas,
   size_bytes                          AS bytes_logicos,
   ROUND(size_bytes / POW(1024, 3), 2) AS gb_logicos
-FROM `ss2-2026-pareja14.taxi_ss2_2026.__TABLES__`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.__TABLES__`
 WHERE table_id = 'fact_trips_std';

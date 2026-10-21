@@ -64,7 +64,7 @@
 -- Se conservan TODOS los rate_code y payment_type válidos: los filtros por
 -- modelo (rate_code = 1, payment_type = 1) se aplican después, no aquí.
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
 OPTIONS(description='Tabla de hechos limpia, tipada y SIN optimizar. Baseline del benchmark de la fase 3.')
 AS
 SELECT
@@ -110,10 +110,10 @@ WHERE pickup_datetime IS NOT NULL
 -- Capturar como evidencia_04_retencion.png y anotar pct en el README.
 -- ----------------------------------------------------------------------------
 SELECT
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`) AS filas_limpias,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`) AS filas_limpias,
   36256539                                                               AS filas_publicas,
-  36256539 - (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`) AS filas_descartadas,
-  ROUND(100 * (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`) / 36256539, 2) AS pct_conservado;
+  36256539 - (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`) AS filas_descartadas,
+  ROUND(100 * (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`) / 36256539, 2) AS pct_conservado;
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 2b: Integridad de casts y cobertura tras la transformación.
@@ -131,7 +131,7 @@ SELECT
   COUNT(DISTINCT payment_type)       AS payment_types_distintos,
   MIN(pickup_date)                   AS desde,
   MAX(pickup_date)                   AS hasta
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`;
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`;
 
 
 -- ----------------------------------------------------------------------------
@@ -156,7 +156,7 @@ SELECT
   APPROX_QUANTILES(trip_distance, 100)[OFFSET(50)] AS distancia_p50,
   APPROX_QUANTILES(trip_distance, 100)[OFFSET(95)] AS distancia_p95,
   APPROX_QUANTILES(trip_duration_minutes, 100)[OFFSET(95)] AS duracion_p95
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`;
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`;
 
 
 -- ----------------------------------------------------------------------------
@@ -164,7 +164,7 @@ FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`;
 -- Convierte IDs numéricos en nombres de zona y borough para análisis
 -- geográfico y para el dashboard.
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.dim_zones`
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.dim_zones`
 OPTIONS(description='Dimensión de zonas de taxi TLC: id entero, nombre y borough')
 AS
 SELECT
@@ -178,7 +178,7 @@ FROM `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom`;
 -- BLOQUE 5a: AGREGADO DIARIO. Serie temporal base del dashboard y del
 -- modelo de forecast. Tabla pequeña (~365 filas).
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.agg_daily` AS
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_daily` AS
 SELECT
   pickup_date,
   EXTRACT(DAYOFWEEK FROM pickup_datetime) AS dow,
@@ -190,14 +190,14 @@ SELECT
   ROUND(AVG(trip_distance), 2)               AS distancia_promedio,
   ROUND(AVG(trip_duration_minutes), 2)       AS duracion_promedio,
   COUNT(DISTINCT pickup_location_id)         AS zonas_activas
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
 GROUP BY 1, 2, 3;
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 5b: PERFIL HORARIO x DÍA DE SEMANA. Detecta picos de demanda y
 -- congestión (matriz 7 x 24 = 168 filas). Base del heatmap del dashboard.
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.agg_hourly_profile` AS
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_hourly_profile` AS
 SELECT
   EXTRACT(DAYOFWEEK FROM pickup_datetime) AS pickup_dow,
   FORMAT_DATE('%a', DATE(pickup_datetime)) AS nombre_dia,
@@ -208,14 +208,14 @@ SELECT
   ROUND(AVG(trip_duration_minutes), 2)     AS duracion_promedio,
   ROUND(AVG(SAFE_DIVIDE(trip_distance, NULLIF(trip_duration_minutes / 60, 0))), 2) AS velocidad_mph,
   ROUND(AVG(tip_ratio), 4)                 AS tip_ratio_promedio
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
 GROUP BY 1, 2, 3;
 
 -- ---------------------------------------------------------------------------- 
 -- BLOQUE 5c: AGREGADO POR ZONA con ranking mediante función de ventana.
 -- Demuestra WINDOW FUNCTIONS sobre agregados (criterio 1.2).
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.agg_zones` AS
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_zones` AS
 WITH origen AS (
   SELECT
     pickup_location_id        AS location_id,
@@ -223,12 +223,12 @@ WITH origen AS (
     AVG(fare_amount)          AS fare_promedio_origen,
     AVG(trip_distance)        AS distancia_promedio_origen,
     AVG(tip_ratio)            AS tip_ratio_origen
-  FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+  FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
   GROUP BY 1
 ),
 destino AS (
   SELECT dropoff_location_id AS location_id, COUNT(*) AS viajes_destino
-  FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+  FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
   GROUP BY 1
 )
 SELECT
@@ -243,14 +243,14 @@ SELECT
   RANK() OVER (ORDER BY o.viajes_origen DESC) AS rank_origen
 FROM origen o
 LEFT JOIN destino d USING (location_id)
-LEFT JOIN `ss2-2026-pareja14.taxi_ss2_2026.dim_zones` z USING (location_id);
+LEFT JOIN `ss2-2026-pareja14-v2.taxi_ss2_2026.dim_zones` z USING (location_id);
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 5d: COMPARACIÓN POR MÉTODO DE PAGO. Consolida el hallazgo de que
 -- el efectivo registra propina cero (justificación del filtro del modelo
 -- de clasificación). Tabla de ~6 filas.
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.agg_payment` AS
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_payment` AS
 SELECT
   CASE payment_type
     WHEN 1 THEN 'Tarjeta de credito'
@@ -266,14 +266,14 @@ SELECT
   ROUND(AVG(tip_amount), 3)                        AS propina_promedio,
   ROUND(AVG(tip_ratio), 4)                         AS tip_ratio_promedio,
   ROUND(100 * COUNTIF(tip_amount > 0) / COUNT(*), 2) AS pct_con_propina
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std`
 GROUP BY 1;
 
 -- ----------------------------------------------------------------------------
 -- BLOQUE 5e: TOP 25 RUTAS ORIGEN-DESTINO. Doble JOIN con la dimensión de
 -- zonas para nombres legibles. Tabla pequeña para el dashboard.
 -- ----------------------------------------------------------------------------
-CREATE OR REPLACE TABLE `ss2-2026-pareja14.taxi_ss2_2026.agg_routes` AS
+CREATE OR REPLACE TABLE `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_routes` AS
 SELECT
   zp.zone                          AS zona_origen,
   zd.zone                          AS zona_destino,
@@ -283,9 +283,9 @@ SELECT
   ROUND(AVG(trip_distance), 2)     AS distancia_promedio,
   ROUND(AVG(fare_amount), 2)       AS fare_promedio,
   ROUND(AVG(trip_duration_minutes), 2) AS duracion_promedio
-FROM `ss2-2026-pareja14.taxi_ss2_2026.fact_trips_std` t
-LEFT JOIN `ss2-2026-pareja14.taxi_ss2_2026.dim_zones` zp ON zp.location_id = t.pickup_location_id
-LEFT JOIN `ss2-2026-pareja14.taxi_ss2_2026.dim_zones` zd ON zd.location_id = t.dropoff_location_id
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.fact_trips_std` t
+LEFT JOIN `ss2-2026-pareja14-v2.taxi_ss2_2026.dim_zones` zp ON zp.location_id = t.pickup_location_id
+LEFT JOIN `ss2-2026-pareja14-v2.taxi_ss2_2026.dim_zones` zd ON zd.location_id = t.dropoff_location_id
 GROUP BY 1, 2, 3, 4
 ORDER BY n_viajes DESC
 LIMIT 25;
@@ -298,12 +298,12 @@ LIMIT 25;
 -- Capturar como evidencia_04_agregados.png.
 -- ----------------------------------------------------------------------------
 SELECT
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.dim_zones`)         AS filas_dim_zones,
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_daily`)         AS filas_agg_daily,
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_hourly_profile`) AS filas_agg_hourly,
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_zones`)         AS filas_agg_zones,
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_payment`)       AS filas_agg_payment,
-  (SELECT COUNT(*) FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_routes`)        AS filas_agg_routes;
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.dim_zones`)         AS filas_dim_zones,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_daily`)         AS filas_agg_daily,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_hourly_profile`) AS filas_agg_hourly,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_zones`)         AS filas_agg_zones,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_payment`)       AS filas_agg_payment,
+  (SELECT COUNT(*) FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_routes`)        AS filas_agg_routes;
 
 
 -- ----------------------------------------------------------------------------
@@ -316,7 +316,7 @@ SELECT
   pickup_hour,
   SUM(n_viajes)                                           AS viajes,
   ROUND(SUM(n_viajes * velocidad_mph) / SUM(n_viajes), 2) AS velocidad_mph_ponderada
-FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_hourly_profile`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_hourly_profile`
 GROUP BY pickup_hour
 ORDER BY viajes DESC;
 
@@ -329,7 +329,7 @@ ORDER BY viajes DESC;
 SELECT
   zone, borough, viajes_origen,
   ROUND(100 * viajes_origen / SUM(viajes_origen) OVER (), 2) AS pct_origenes
-FROM `ss2-2026-pareja14.taxi_ss2_2026.agg_zones`
+FROM `ss2-2026-pareja14-v2.taxi_ss2_2026.agg_zones`
 ORDER BY rank_origen
 LIMIT 5;
 
